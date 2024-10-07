@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci pour votre soumission</title>
+</head>
+<body style="display: flex; justify-content: center; align-items: center;">
+
+    <!-- Section de remerciement -->
+    <section id="thankyou-section" style="box-shadow: 0 0 2px 0 black; border-radius: 5px; padding: 30px; background-color: #fff">
+        <h1>Merci, <span id="user-name"></span> pour le commentaire (^•^) !</h1>
+        <p>Je recevrais normalement votre message. Je vous répondrai bientôt à l'adresse <span id="user-email"></span>.</p>
+        <p>Visitez mon <a href="cv.html">Curiculum Vitae</a> ou mon <a href="index.html">porte-folio.</a></p>
+    </section>
+    <script>
+        // Récupérer les données depuis localStorage
+        const name = localStorage.getItem('name');
+        const email = localStorage.getItem('email');
+
+        // Injecter les données dans la page
+        document.getElementById('user-name').textContent = name;
+        document.getElementById('user-email').textContent = email;
+    </script>
+
+</body>
+</html>
