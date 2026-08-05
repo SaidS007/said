@@ -1,111 +1,206 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dossier CV — Said Sarr</title>
+  <meta name="description" content="Dossier CV détaillé de Said Sarr : Parcours, compétences système, réseau et projets." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Styles spécifiques à la page CV */
+    .cv-header-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: var(--accent-glow);
+      color: var(--accent-primary);
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+    .cv-section-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .cv-grid-2 {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 868px) {
+      .cv-grid-2 { grid-template-columns: 1fr; }
+    }
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    .spec-table th, .spec-table td {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.9rem;
+    }
+    .spec-table th {
+      color: var(--accent-primary);
+      font-family: var(--font-mono);
+    }
+  </style>
 </head>
 <body>
-  <div class="top-strip">
-    <div class="container">
-      <div>Dossier complet</div>
-      <div>CV d’informaticien · réseau · support · web</div>
-      <div><a href="index.html">Retour à l’accueil</a></div>
+
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div>📄 Dossier CV — Version Détaillée</div>
+      <div><a href="index.html">← Retour à l’accueil</a></div>
     </div>
   </div>
-  <header class="masthead">
-    <div class="container masthead-card">
-      <div class="masthead-inner">
-        <div class="masthead-copy">
-          <span class="kicker">Dossier · Version détaillée</span>
-          <h1>Le dossier technique</h1>
-          <p class="lead">Cette page rassemble les éléments utiles au stage : parcours, compétences, projets et points de contact, dans une mise en page inspirée des doubles pages de presse.</p>
-          <div class="masthead-actions">
-            <a class="button primary" href="Ressources/SARR_RESUME.pdf">Ouvrir le PDF</a>
-            <a class="button" href="index.html#realisations">Voir les projets</a>
+
+  <header class="hero" style="padding: 2.5rem 0 1.5rem;">
+    <div class="container hero-grid">
+      <div>
+        <span class="cv-header-badge">CURRICULUM VITAE</span>
+        <h1 class="hero-title" style="font-size: 2.8rem;">Spécifications & Parcours</h1>
+        <p class="hero-subtitle">
+          Synthèse technique complète destinée aux recruteurs, responsables réseaux et chefs de projets IT.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="Ressources/SARR_RESUME.pdf" target="_blank" rel="noopener">Ouvrir le CV PDF</a>
+          <a class="btn btn-secondary" href="realisations.html">Consulter les réalisations</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="profile-header">
+          <img src="img/IMG-SARR.png" alt="Said Sarr" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-primary);" />
+          <div>
+            <h3 style="color: var(--text-heading);">Said Sarr</h3>
+            <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-primary);">Support IT & Dev Junior</span>
           </div>
         </div>
-        <aside class="masthead-side">
-          <div class="portrait-card">
-            <div class="portrait"><div><div class="initials">CV</div><div class="role">Dossier personnel</div></div></div>
-          </div>
-          <div class="fact-row">
-            <div class="fact"><span class="label">Cible</span><span class="value">Stage en informatique et réseaux</span></div>
-            <div class="fact"><span class="label">Style</span><span class="value">Magazine / article de presse</span></div>
-            <div class="fact"><span class="label">Base</span><span class="value">Bamako, Mali</span></div>
-          </div>
-        </aside>
+        <div class="profile-info-list">
+          <div class="info-item"><span class="info-label">Cible</span><span class="info-val">Stage / Postes Réseaux & IT</span></div>
+          <div class="info-item"><span class="info-label">Localisation</span><span class="info-val">Bamako, Mali</span></div>
+          <div class="info-item"><span class="info-label">Contact</span><span class="info-val">sarrsaid00@gmail.com</span></div>
+        </div>
       </div>
     </div>
   </header>
 
-  <main class="container">
-    <section class="section">
-      <div class="section-header"><div><h2>Profil professionnel</h2><p>Je conçois et maintiens des environnements numériques simples, sécurisés et lisibles, avec une attention particulière à la qualité du support et à l’organisation des systèmes.</p></div></div>
-      <div class="section-body">
-        <div class="news-grid">
-          <article class="story">
-            <h3>Résumé</h3>
-            <p>Junior Dev | IT Support basé à Bamako, avec une formation en informatique réseaux et télécommunications, un intérêt fort pour la cybersécurité, et une pratique concrète du web, de Linux, de Windows Server et des outils de supervision réseau.</p>
-            <p>Je cherche des environnements où je peux apprendre vite, servir efficacement, et produire des résultats mesurables : assistance utilisateur, administration système, mise en place d’outils internes, documentation, sécurisation et amélioration continue.</p>
-          </article>
-          <aside class="sidebar-stack">
-            <div class="info-box">
-              <h4>Coordonnées</h4>
-              <ul class="info-list">
-                <li><span>Téléphone</span><strong>+223 66 61 67 05</strong></li>
-                <li><span>Email</span><strong>sarrsaid00@gmail.com</strong></li>
-                <li><span>Adresse</span><strong>Yirimadio, ATTBougou 759 Logements</strong></li>
-              </ul>
+  <nav class="sticky-nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-link">Accueil</a>
+      <a href="cv.html" class="nav-link active">Dossier CV</a>
+      <a href="realisations.html" class="nav-link">Réalisations</a>
+      <a href="certifs.html" class="nav-link">Certifications</a>
+    </div>
+  </nav>
+
+  <main class="container" style="padding-top: 2rem;">
+
+    <div class="cv-grid-2">
+      <div>
+        <section class="cv-section-block">
+          <h2 style="color: var(--text-heading); font-family: var(--font-mono); margin-bottom: 1rem;">01. Profil Professionnel</h2>
+          <p style="color: var(--text-muted); margin-bottom: 1rem;">
+            Technicien informatique polyvalent formé aux infrastructures réseau et télécoms à EPHEP Smart School. Capable d’intervenir sur l’ensemble du cycle d’assistance utilisateur, d’administration système (Linux/Windows) et d’intégration d’outils web sécurisés.
+          </p>
+          <p style="color: var(--text-muted);">
+            Orienté rigueur et qualité de service, je privilégie des déploiements documentés et testés en bac à sable avant toute mise en production.
+          </p>
+        </section>
+
+        <section class="cv-section-block">
+          <h2 style="color: var(--text-heading); font-family: var(--font-mono); margin-bottom: 1rem;">02. Matrice des Compétences</h2>
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>Domaine</th>
+                <th>Technologies & Outils</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Réseaux & Télécoms</strong></td>
+                <td>Packet Tracer, Routing/Switching Cisco, DHCP/DNS, Wireshark, VPN OpenVPN, Câblage structuré</td>
+              </tr>
+              <tr>
+                <td><strong>Systèmes & Serveurs</strong></td>
+                <td>Debian/Ubuntu, Windows Server, Serveurs de fichiers Samba, Pile LAMP, Virtualisation (VirtualBox)</td>
+              </tr>
+              <tr>
+                <td><strong>Développement Web</strong></td>
+                <td>HTML5, CSS3, JavaScript ES6+, PHP, MySQL, Conception MCD/MLD, Git & GitHub</td>
+              </tr>
+              <tr>
+                <td><strong>Langages & Scripting</strong></td>
+                <td>Python, Scripting Bash, Java, C/C++</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="cv-section-block">
+          <h2 style="color: var(--text-heading); font-family: var(--font-mono); margin-bottom: 1rem;">03. Formation Académique</h2>
+          <div class="timeline-compact">
+            <div class="timeline-entry">
+              <span class="entry-year">EPHEP Smart School — Bamako</span>
+              <strong style="display:block; color:var(--text-heading);">Informatique, Réseaux & Télécommunications</strong>
+              <p>Formations pratiques axées sur l'administration réseau, les équipements Cisco, la sécurité système et la création d'applications web.</p>
             </div>
-          </aside>
-        </div>
+            <div class="timeline-entry" style="margin-top: 1.5rem;">
+              <span class="entry-year">Lycée Privé Teriya</span>
+              <strong style="display:block; color:var(--text-heading);">Baccalauréat Scientifique (Série SET)</strong>
+              <p>Mention Bien. Solides bases en mathématiques, logique et sciences exactes.</p>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
 
-    <section class="section">
-      <div class="section-header"><div><h2>Expérience projet</h2><p>Les projets ci-dessous sont présentés comme des articles courts : contexte, action, résultat.</p></div></div>
-      <div class="section-body">
-        <div class="timeline">
-          <div class="story timeline-item"><div class="time">Août 2025</div><p><strong>OpenVPN</strong> — réseau local sécurisé pour tests de connexion à distance et pratique d’une architecture de confiance minimale.</p></div>
-          <div class="story timeline-item"><div class="time">Juillet 2025</div><p><strong>Samba</strong> — serveur de fichiers local pour centraliser les échanges et structurer les accès internes.</p></div>
-          <div class="story timeline-item"><div class="time">Mars 2025</div><p><strong>Recy’Plast</strong> — application web pour présenter et accompagner un projet de recyclage avec un rendu plus professionnel.</p></div>
-          <div class="story timeline-item"><div class="time">Janvier 2025</div><p><strong>LAMP sécurisé</strong> — plateforme avec rôles, authentification et organisation claire des accès.</p></div>
+      <aside>
+        <div class="cv-section-block">
+          <h3 style="color: var(--text-heading); margin-bottom: 1rem;">Contact Direct</h3>
+          <ul class="feature-list" style="font-size: 0.9rem;">
+            <li><strong>Téléphone :</strong> +223 66 61 67 05</li>
+            <li><strong>Email :</strong> sarrsaid00@gmail.com</li>
+            <li><strong>Quartier :</strong> Yirimadio, ATTBougou</li>
+            <li><strong>Ville :</strong> Bamako, Mali</li>
+          </ul>
         </div>
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="section-header"><div><h2>Compétences détaillées</h2><p>Un découpage lisible pour mettre en avant les briques techniques sans noyer le recruteur.</p></div></div>
-      <div class="section-body">
-        <div class="columns-3">
-          <article class="card"><h3>Réseaux</h3><ul class="list-tight"><li>Packet Tracer</li><li>Concepts CCNA</li><li>Support de transmission</li><li>Administration et dépannage</li></ul></article>
-          <article class="card"><h3>Systèmes</h3><ul class="list-tight"><li>Linux</li><li>Windows</li><li>Windows Server</li><li>Virtualisation</li></ul></article>
-          <article class="card"><h3>Développement</h3><ul class="list-tight"><li>HTML, CSS, JavaScript</li><li>PHP / MySQL</li><li>Python, Java, C / C++</li><li>Git / GitHub</li></ul></article>
+        <div class="cv-section-block">
+          <h3 style="color: var(--text-heading); margin-bottom: 1rem;">Présence Numérique</h3>
+          <ul class="feature-list" style="font-size: 0.9rem;">
+            <li><a href="https://github.com/SaidS007" target="_blank">Dépôts GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/said-sarr-b972b4234/" target="_blank">Profil LinkedIn</a></li>
+            <li><a href="https://saids007.github.io/said/" target="_blank">Portfolio en ligne</a></li>
+          </ul>
         </div>
-      </div>
-    </section>
+      </aside>
+    </div>
 
-    <section class="section">
-      <div class="section-header"><div><h2>Formation</h2><p>Une présentation sobre, sans détour, pour garder le focus sur l’aptitude technique.</p></div></div>
-      <div class="section-body">
-        <div class="columns-3">
-          <article class="card"><h3>EPHEP Smart School</h3><p style="line-height:1.8;margin:0;">Formation en informatique, réseaux et télécommunications.</p></article>
-          <article class="card"><h3>Lycée Privé Teriya</h3><p style="line-height:1.8;margin:0;">Baccalauréat malien, mention Bien.</p></article>
-          <article class="card"><h3>Langues</h3><p style="line-height:1.8;margin:0;">Français, Bambara, Anglais et Arabe.</p></article>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
-    <div class="container footer-card">
-      <div><strong>Said Sarr</strong> — dossier complet</div>
-      <div><a href="index.html">Accueil</a> · <a href="certifs.html">Certifications</a> · <a href="Ressources/SARR_RESUME.pdf">PDF</a></div>
+    <div class="container footer-inner">
+      <p>© 2026 Said Sarr — Dossier CV Technique</p>
+      <div class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="realisations.html">Réalisations</a>
+        <a href="certifs.html">Certifications</a>
+      </div>
     </div>
   </footer>
+
   <script src="script.js"></script>
+  <script>
+    // Script spécifique à la page CV : suivi statistique de consultation du CV
+    console.log("Page CV chargée : Mode consultation active.");
+  </script>
 </body>
 </html>

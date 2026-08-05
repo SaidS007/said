@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Réalisations & Infrastructures — Said Sarr</title>
+  <meta name="description" content="Catalogue complet des projets d'infrastructures réseaux, serveurs et applications de Said Sarr." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Styles spécifiques pour les fiches de projets détaillées */
+    .project-detail-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    @media (max-width: 868px) {
+      .project-detail-card { grid-template-columns: 1fr; }
+    }
+    .project-detail-img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+    .project-meta-item {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      color: var(--accent-primary);
+      background: var(--bg-body);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .tech-stack-list {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div>⚙️ Galerie des Réalisations & Déploiements</div>
+      <div><a href="index.html">← Retour à l’accueil</a></div>
+    </div>
+  </div>
+
+  <header class="hero" style="padding: 2.5rem 0 1.5rem;">
+    <div class="container">
+      <h1 class="hero-title" style="font-size: 2.8rem;">Projets & Architectures</h1>
+      <p class="hero-subtitle">
+        Focus détaillé sur les topologies virtuelles, serveurs locaux et applications déployés.
+      </p>
+    </div>
+  </header>
+
+  <nav class="sticky-nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-link">Accueil</a>
+      <a href="cv.html" class="nav-link">Dossier CV</a>
+      <a href="realisations.html" class="nav-link active">Réalisations</a>
+      <a href="certifs.html" class="nav-link">Certifications</a>
+    </div>
+  </nav>
+
+  <main class="container" style="padding: 2.5rem 0;">
+
+    <!-- Projet 1 -->
+    <article class="project-detail-card">
+      <img src="img/os.png" alt="Architecture OpenVPN" class="project-detail-img" />
+      <div>
+        <span class="project-meta-item">RÉSEAU & SÉCURITÉ</span>
+        <span class="project-meta-item">AOÛT 2025</span>
+        <h2 style="color: var(--text-heading); margin: 0.5rem 0;">Serveur OpenVPN & Réseau Distant Sécurisé</h2>
+        <p style="color: var(--text-muted); margin-bottom: 1rem;">
+          <strong>Contexte :</strong> Modéliser un accès à distance sécurisé pour des collaborateurs nomades devant accéder au réseau interne sans exposer les services au web public.
+        </p>
+        <p style="color: var(--text-muted);">
+          <strong>Réalisation :</strong> Déploiement d'un serveur OpenVPN sous Linux, génération d'une autorité de certification (CA), création de certificats clients chiffrés et routage des flux de données.
+        </p>
+        <div class="tech-stack-list">
+          <span class="pill">OpenVPN</span>
+          <span class="pill">Linux Debian</span>
+          <span class="pill">PKI / TLS</span>
+          <span class="pill">IPTables</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Projet 2 -->
+    <article class="project-detail-card">
+      <img src="img/samba.jpg" alt="Serveur Samba" class="project-detail-img" />
+      <div>
+        <span class="project-meta-item">ADMINISTRATION SYSTÈME</span>
+        <span class="project-meta-item">JUILLET 2025</span>
+        <h2 style="color: var(--text-heading); margin: 0.5rem 0;">Serveur de Fichiers d'Entreprise Samba</h2>
+        <p style="color: var(--text-muted); margin-bottom: 1rem;">
+          <strong>Contexte :</strong> Besoin de centraliser les fichiers partagés d'un établissement tout en appliquant une stricte séparation des droits d'accès par service.
+        </p>
+        <p style="color: var(--text-muted);">
+          <strong>Réalisation :</strong> Configuration du démon `smbd`, création des groupes Linux, définition des partages à accès restreint et intégration de règles de sauvegarde.
+        </p>
+        <div class="tech-stack-list">
+          <span class="pill">Samba</span>
+          <span class="pill">Linux</span>
+          <span class="pill">Permissions POSIX</span>
+          <span class="pill">Partage Réseau</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Projet 3 -->
+    <article class="project-detail-card">
+      <img src="img/site.jpg" alt="Projet Recy'Plast" class="project-detail-img" />
+      <div>
+        <span class="project-meta-item">DÉVELOPPEMENT WEB</span>
+        <span class="project-meta-item">MARS 2025</span>
+        <h2 style="color: var(--text-heading); margin: 0.5rem 0;">Recy’Plast — Plateforme de Valorisation Écologique</h2>
+        <p style="color: var(--text-muted); margin-bottom: 1rem;">
+          <strong>Contexte :</strong> Digitalisation d'une initiative locale de recyclage plastique à Bamako pour sensibiliser et suivre la collecte des déchets.
+        </p>
+        <p style="color: var(--text-muted);">
+          <strong>Réalisation :</strong> Développement complet de l'interface en responsive design, intégration d'un formulaire dynamique et mise en avant des indicateurs clés d'impact.
+        </p>
+        <div class="tech-stack-list">
+          <span class="pill">HTML5 / CSS3</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">PHP / MySQL</span>
+          <span class="pill">UI/UX</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Projet 4 -->
+    <article class="project-detail-card">
+      <img src="img/apache-support.jpeg" alt="Plateforme LAMP" class="project-detail-img" />
+      <div>
+        <span class="project-meta-item">INFRASTRUCTURE WEB</span>
+        <span class="project-meta-item">JANVIER 2025</span>
+        <h2 style="color: var(--text-heading); margin: 0.5rem 0;">Environnement Multi-Rôles LAMP</h2>
+        <p style="color: var(--text-muted); margin-bottom: 1rem;">
+          <strong>Contexte :</strong> Hébergement d'un portail éducatif nécessitant une authentification sécurisée et une séparation des rôles (Admin, Professeurs, Étudiants).
+        </p>
+        <p style="color: var(--text-muted);">
+          <strong>Réalisation :</strong> Installation et sécurisation du serveur web Apache, configuration de la base MySQL, écriture des scripts d'authentification et gestion de sessions HTTP.
+        </p>
+        <div class="tech-stack-list">
+          <span class="pill">Apache2</span>
+          <span class="pill">MySQL</span>
+          <span class="pill">PHP PDO</span>
+          <span class="pill">Gestion Rôles</span>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2026 Said Sarr — Catalogue des Réalisations</p>
+      <div class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="cv.html">Dossier CV</a>
+        <a href="certifs.html">Certifications</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Script d'interaction spécifique aux projets (par exemple zoom d'images au clic)
+    document.addEventListener('DOMContentLoaded', () => {
+      const projectImgs = document.querySelectorAll('.project-detail-img');
+      projectImgs.forEach(img => {
+        img.addEventListener('click', () => {
+          img.classList.toggle('zoomed');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

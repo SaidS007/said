@@ -1,63 +1,216 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Certifications — Said Sarr</title>
+  <title>Certifications & Badges — Said Sarr</title>
+  <meta name="description" content="Accréditations et certifications Cisco NetAcad et Cybersécurité de Said Sarr." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Styles spécifiques pour le filtrage et les badges */
+    .filter-bar {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--accent-glow);
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+    }
+    .cert-full-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .cert-item-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .cert-item-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-primary);
+    }
+    .cert-item-card img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      margin: 0 auto 1rem;
+      background: var(--bg-body);
+      padding: 8px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+    .cert-category-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--accent-primary);
+      margin-bottom: 0.5rem;
+    }
+  </style>
 </head>
 <body>
-  <div class="top-strip">
-    <div class="container">
-      <div>Badges & certifications</div>
-      <div>Cybersécurité · réseaux · web</div>
-      <div><a href="index.html">Retour</a></div>
+
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div>🏅 Dossier Certifications & Accréditations</div>
+      <div><a href="index.html">← Retour à l’accueil</a></div>
     </div>
   </div>
-  <header class="masthead">
-    <div class="container masthead-card">
-      <div class="masthead-inner">
-        <div class="masthead-copy">
-          <span class="kicker">Dossier technique</span>
-          <h1>Certifications choisies</h1>
-          <p class="lead">Une sélection des badges et formations qui appuient le profil : sécurité, réseaux, systèmes et culture numérique.</p>
-          <div class="masthead-actions">
-            <a class="button primary" href="index.html#formation">Voir la formation</a>
-            <a class="button" href="cv.html">Voir le CV détaillé</a>
-          </div>
-        </div>
-        <aside class="masthead-side">
-          <div class="portrait-card"><div class="portrait"><div><div class="initials">#</div><div class="role">Certifications</div></div></div></div>
-          <div class="fact-row">
-            <div class="fact"><span class="label">Axe principal</span><span class="value">Sécurité et réseaux</span></div>
-            <div class="fact"><span class="label">Approche</span><span class="value">Apprentissage continu</span></div>
-            <div class="fact"><span class="label">Objectif</span><span class="value">Montrer la progression</span></div>
-          </div>
-        </aside>
-      </div>
+
+  <header class="hero" style="padding: 2.5rem 0 1.5rem;">
+    <div class="container">
+      <h1 class="hero-title" style="font-size: 2.8rem;">Badges & Attestations</h1>
+      <p class="hero-subtitle">
+        Validation continue des acquis via Cisco Networking Academy et événements nationaux de cybersécurité.
+      </p>
     </div>
   </header>
 
-  <main class="container">
-    <section class="section">
-      <div class="section-header"><div><h2>Badges et attestations</h2><p>Les éléments les plus pertinents pour un stage technique, présentés sans surcharge visuelle.</p></div></div>
-      <div class="section-body">
-        <div class="columns-3">
-          <article class="card"><h3>Cybersécurité</h3><ul class="list-tight"><li>Introduction to Cybersecurity</li><li>Ethical Hacker</li><li>Journées Nationales de Cybersécurité</li><li>EndPoint Security</li></ul></article>
-          <article class="card"><h3>Réseaux</h3><ul class="list-tight"><li>Networking Basics</li><li>Networking Devices</li><li>Configuration et dépannage</li><li>Culture Cisco / NetAcad</li></ul></article>
-          <article class="card"><h3>Progression</h3><ul class="list-tight"><li>Travail régulier</li><li>Projets concrets</li><li>Pratique autonome</li><li>Veille technique</li></ul></article>
-        </div>
+  <nav class="sticky-nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-link">Accueil</a>
+      <a href="cv.html" class="nav-link">Dossier CV</a>
+      <a href="realisations.html" class="nav-link">Réalisations</a>
+      <a href="certifs.html" class="nav-link active">Certifications</a>
+    </div>
+  </nav>
+
+  <main class="container" style="padding: 2.5rem 0;">
+
+    <!-- Control bar pour filtrer -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">Tous les badges</button>
+      <button class="filter-btn" data-filter="cyber">Cybersécurité</button>
+      <button class="filter-btn" data-filter="network">Réseaux</button>
+      <button class="filter-btn" data-filter="practice">Pratique & Veille</button>
+    </div>
+
+    <div class="cert-full-grid" id="cert-grid">
+
+      <!-- Badge 1 -->
+      <div class="cert-item-card" data-category="cyber">
+        <img src="img/Introduction_to_Cybersecurity_Badge.png" alt="Introduction to Cybersecurity" />
+        <span class="cert-category-tag">Cisco NetAcad</span>
+        <h3 style="color: var(--text-heading); font-size: 1.1rem;">Introduction to Cybersecurity</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Principes de base de la sécurité informatique, confidentialité et protection des données.</p>
       </div>
-    </section>
+
+      <!-- Badge 2 -->
+      <div class="cert-item-card" data-category="cyber">
+        <img src="img/Ethical_Hacker_Badge.png" alt="Ethical Hacker" />
+        <span class="cert-category-tag">Cisco NetAcad</span>
+        <h3 style="color: var(--text-heading); font-size: 1.1rem;">Ethical Hacker</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Techniques d'audit de vulnérabilité, mécanismes d'attaque et d'analyse défensive.</p>
+      </div>
+
+      <!-- Badge 3 -->
+      <div class="cert-item-card" data-category="network">
+        <img src="img/Networking_Basics_Badge.png" alt="Networking Basics" />
+        <span class="cert-category-tag">Cisco NetAcad</span>
+        <h3 style="color: var(--text-heading); font-size: 1.1rem;">Networking Basics</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Fondamentaux du modèle OSI, adressage IP, sous-réseaux et protocoles de communication.</p>
+      </div>
+
+      <!-- Badge 4 -->
+      <div class="cert-item-card" data-category="network">
+        <img src="img/Networking_Devices_Badge.png" alt="Networking Devices" />
+        <span class="cert-category-tag">Cisco NetAcad</span>
+        <h3 style="color: var(--text-heading); font-size: 1.1rem;">Networking Devices</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Configuration et rôle des routeurs, commutateurs et cartes d'interface réseau.</p>
+      </div>
+
+      <!-- Badge 5 -->
+      <div class="cert-item-card" data-category="cyber">
+        <img src="img/jnc_1.jpg" alt="Journées Nationales Cybersécurité" />
+        <span class="cert-category-tag">Événement National</span>
+        <h3 style="color: var(--text-heading); font-size: 1.1rem;">Journées Nationales Cybersécurité</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Participation aux conférences et ateliers pratiques sur les enjeux cyber régionaux.</p>
+      </div>
+
+      <!-- Badge 6 -->
+      <div class="cert-item-card" data-category="cyber">
+        <img src="img/secu.jpg" alt="EndPoint Security" />
+        <span class="cert-category-tag">Sécurité Système</span>
+        <h3 style="color: var(--text-heading); font-size: 1.1rem;">EndPoint Security</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Protection des hôtes, pare-feu locaux et gestion de la conformité des terminaux.</p>
+      </div>
+
+      <!-- Badge 7 -->
+      <div class="cert-item-card" data-category="practice">
+        <img src="img/linuxprivesc.svg" alt="Pratique Autonome" />
+        <span class="cert-category-tag">Pratique Autonome</span>
+        <h3 style="color: var(--text-heading); font-size: 1.1rem;">Élévation de Privilèges Linux</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Laboratoires d'entraînement sur la configuration des droits SUID et sudoers.</p>
+      </div>
+
+      <!-- Badge 8 -->
+      <div class="cert-item-card" data-category="practice">
+        <img src="img/hashcracker.svg" alt="Travail Régulier" />
+        <span class="cert-category-tag">Veille & Outillage</span>
+        <h3 style="color: var(--text-heading); font-size: 1.1rem;">Analyse & Cryptographie</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Manipulation des fonctions de hachage et mécanismes de chiffrement d'accès.</p>
+      </div>
+
+    </div>
+
   </main>
 
   <footer class="footer">
-    <div class="container footer-card">
-      <div><strong>Said Sarr</strong> — certifications</div>
-      <div><a href="index.html">Accueil</a> · <a href="cv.html">CV</a></div>
+    <div class="container footer-inner">
+      <p>© 2026 Said Sarr — Galerie des Certifications</p>
+      <div class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="cv.html">Dossier CV</a>
+        <a href="realisations.html">Réalisations</a>
+      </div>
     </div>
   </footer>
+
   <script src="script.js"></script>
+  <script>
+    // Script de filtrage dynamique spécifique à la page certifs.html
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const certCards = document.querySelectorAll('.cert-item-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filterValue = btn.getAttribute('data-filter');
+
+          certCards.forEach(card => {
+            if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>

@@ -1,263 +1,297 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Said Sarr — CV magazine</title>
-  <meta name="description" content="CV vitrine en style magazine pour Said Sarr, informaticien orienté réseaux, support IT et développement web." />
+  <title>Said Sarr — Informatique, Réseaux & Développement Web</title>
+  <meta name="description" content="Portfolio professionnel de Said Sarr : Administration Systèmes & Réseaux, Cybersécurité, Développement Web et Automatisation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="top-strip">
-    <div class="container">
-      <div>Édition personnelle — CV créatif</div>
-      <div>Stage recherché : informatique, réseaux, support, télécoms</div>
-      <div>Bamako · Mali</div>
-    </div>
-  </div>
 
-  <header class="masthead">
-    <div class="container masthead-card">
-      <div class="masthead-inner">
-        <div class="masthead-copy">
-          <span class="kicker">Portrait · Compétences · Réalisations</span>
-          <h1>Said Sarr</h1>
-          <p class="lead">Informaticien orienté réseaux et support IT, avec une appétence pour le développement web, la cybersécurité, l’administration système et les environnements techniques où la fiabilité, la clarté et la discipline comptent autant que la compétence.</p>
-          <div class="masthead-actions">
-            <a class="button primary" href="#profil">Découvrir le profil</a>
-            <a class="button" href="Ressources/SARR_RESUME.pdf">Télécharger le CV PDF</a>
-            <a class="button" href="cv.html">Voir le dossier complet</a>
-          </div>
-        </div>
-        <aside class="masthead-side">
-          <div class="portrait-card">
-            <div class="portrait">
-              <div>
-                <div class="initials">SS</div>
-                <div class="role">Junior Dev · IT Support</div>
-              </div>
-            </div>
-          </div>
-          <div class="fact-row">
-            <div class="fact"><span class="label">Localisation</span><span class="value">Bamako, Mali</span></div>
-            <div class="fact"><span class="label">Contact</span><span class="value">+223 66 61 67 05 · sarrsaid00@gmail.com</span></div>
-            <div class="fact"><span class="label">Présence en ligne</span><span class="value">LinkedIn · GitHub · Portfolio</span></div>
-          </div>
-        </aside>
+  <!-- Top Status Strip -->
+  <header class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="status-indicator">
+        <span class="dot pulse"></span>
+        <span>Disponible pour Opportunités & Stages (Bamako & Distant)</span>
+      </div>
+      <div class="top-links">
+        <a href="#contact">sarrsaid00@gmail.com</a>
+        <button id="theme-toggle" class="icon-btn" aria-label="Changer de thème">🌙</button>
       </div>
     </div>
   </header>
 
-  <div class="nav-wrap">
-    <nav class="nav">
-      <div class="container">
-        <a href="#profil">Profil</a>
-        <a href="#competences">Compétences</a>
-        <a href="#realisations">Réalisations</a>
-        <a href="#formation">Formation</a>
-        <a href="#contact">Contact</a>
+  <!-- Navigation -->
+  <nav class="nav-sticky">
+    <div class="container nav-inner">
+      <a href="#" class="brand">&lt;SaidSarr /&gt;</a>
+      <ul class="nav-menu">
+        <li><a href="#profil">Profil</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#realisations">Projets & Labs</a></li>
+        <li><a href="#formation">Parcours</a></li>
+        <li><a href="#contact" class="btn-sm primary">Me contacter</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero container">
+    <div class="hero-content">
+      <div class="badge-tech">Réseaux · Systèmes · Dev Backend · Cybersécurité</div>
+      <h1>Informaticien passionné orienté <span class="highlight">Infrastructures & Code</span>.</h1>
+      <p class="lead">
+        Je conçois et sécurise des environnements numériques fiables. De la configuration de topologies réseaux à l'automatisation de workflows complexes et au développement web, je privilegie la rigueur, l'architecture propre et le sens du service.
+      </p>
+      <div class="hero-actions">
+        <a href="#realisations" class="btn primary">Explorer mes réalisations</a>
+        <a href="Ressources/SARR_RESUME.pdf" class="btn outline" target="_blank" rel="noopener">Télécharger le CV (PDF)</a>
       </div>
-    </nav>
-  </div>
+    </div>
+    <div class="hero-card">
+      <div class="terminal-header">
+        <span class="term-btn red"></span>
+        <span class="term-btn yellow"></span>
+        <span class="term-btn green"></span>
+        <span class="term-title">said@sysadmin:~</span>
+      </div>
+      <div class="terminal-body">
+        <p><span class="prompt">$</span> whoami</p>
+        <p class="response">Said Sarr (Seydou)</p>
+        <p><span class="prompt">$</span> location</p>
+        <p class="response">Bamako, Mali 🇲🇱</p>
+        <p><span class="prompt">$</span> stack --primary</p>
+        <p class="response">[Linux, Cisco CCNA, OpenVPN, Python, Node.js, PHP, MySQL, Docker, n8n]</p>
+        <p><span class="prompt">$</span> status</p>
+        <p class="response text-green">Ready to deploy & optimize.</p>
+      </div>
+    </div>
+  </section>
 
   <main class="container">
-    <section class="section" id="profil">
-      <div class="section-header">
-        <div>
-          <h2>Le profil en une page</h2>
-          <p>Une présentation claire, structurée et visuellement forte, pensée comme une double-page de magazine pour faire ressortir le fond autant que la forme.</p>
+
+    <!-- Section Compétences -->
+    <section class="section" id="competences">
+      <div class="section-title">
+        <h2>Matrice de Compétences</h2>
+        <p>Outils, protocoles et technologies manipulés au quotidien dans des environnements de test et de production.</p>
+      </div>
+
+      <div class="grid-4">
+        <div class="card-tech">
+          <div class="card-icon">🌐</div>
+          <h3>Réseaux & Telecoms</h3>
+          <ul>
+            <li>Routing & Switching (Cisco CCNA)</li>
+            <li>Simulation (Packet Tracer)</li>
+            <li>Protocoles TCP/IP, DNS, DHCP, VLAN</li>
+            <li>Wireshark & Analyse de trafic</li>
+          </ul>
+        </div>
+
+        <div class="card-tech">
+          <div class="card-icon">🛡️</div>
+          <h3>Systèmes & Sécurité</h3>
+          <ul>
+            <li>Linux (Debian/Ubuntu) & Windows Server</li>
+            <li>OpenVPN, SSH, Pare-feu (UFW/iptables)</li>
+            <li>Samba File Server, Active Directory</li>
+            <li>Audits de bases (Bases Ethical Hacking)</li>
+          </ul>
+        </div>
+
+        <div class="card-tech">
+          <div class="card-icon">💻</div>
+          <h3>Développement & APIs</h3>
+          <ul>
+            <li>Backend : PHP, Python, Node.js</li>
+            <li>Frontend : HTML5, CSS3, JavaScript</li>
+            <li>Bases de données : MySQL, MCD/MLD</li>
+            <li>APIs REST, Graph API Explorer, Rate Limiting</li>
+          </ul>
+        </div>
+
+        <div class="card-tech">
+          <div class="card-icon">⚙️</div>
+          <h3>Automation & DevOps</h3>
+          <ul>
+            <li>Workflows n8n (Intégration d'APIs & Batch)</li>
+            <li>Git / GitHub (CI/CD workflows basiques)</li>
+            <li>Bash Scripting & Tâches Cron</li>
+            <li>Théorie des Graphes & Algorithmes</li>
+          </ul>
         </div>
       </div>
-      <div class="section-body">
-        <div class="news-grid">
-          <article class="story">
-            <h3>Ce que je cherche à montrer</h3>
-            <p>Je construis des interfaces et des environnements numériques avec une logique de service : comprendre le besoin, sécuriser la base technique, documenter proprement et livrer quelque chose d’exploitable. Mon terrain naturel se situe entre les réseaux, le support informatique, l’administration système et le développement web.</p>
-            <p>Je m’intéresse particulièrement aux contextes où la qualité de service, la conformité, la supervision, la disponibilité des systèmes et la protection des données sont décisives. C’est ce mélange de rigueur technique et de sens pratique que ce CV met en avant.</p>
-            <blockquote class="pull-quote">Fiabilité, clarté et sens du service : trois repères qui guident ma façon de travailler.</blockquote>
-          </article>
-          <div class="sidebar-stack">
-            <aside class="info-box">
-              <h4>Fiche rapide</h4>
-              <ul class="info-list">
-                <li><span>Nom</span><strong>Said Sarr</strong></li>
-                <li><span>Statut</span><strong>Junior Dev · IT Support</strong></li>
-                <li><span>Ville</span><strong>Bamako</strong></li>
-                <li><span>Spécialités</span><strong>Réseaux · Support · Web</strong></li>
-              </ul>
-            </aside>
-            <aside class="info-box">
-              <h4>Liens</h4>
-              <ul class="info-list">
-                <li><span>LinkedIn</span><strong>Profil pro</strong></li>
-                <li><span>GitHub</span><strong>Dépôts & projets</strong></li>
-                <li><span>PDF</span><strong>CV physique</strong></li>
-              </ul>
-            </aside>
+    </section>
+
+    <!-- Section Projets -->
+    <section class="section" id="realisations">
+      <div class="section-title">
+        <h2>Projets & Lab Technique</h2>
+        <p>Aperçu d'architectures concrètes, d'outils automatisés et d'applications déployées.</p>
+      </div>
+
+      <div class="projects-grid">
+        
+        <!-- Projet 1 -->
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-tag">Sécurité & Réseau</span>
+            <span class="project-date">2025</span>
+          </div>
+          <h3>Infrastructures Réseaux Chiffrées & VPN Local</h3>
+          <p>
+            Déploiement et configuration d'un serveur <strong>OpenVPN</strong> en environnement virtuel Linux pour simuler un accès distant sécurisé (Zero-Trust basis). Mise en place d'un serveur de fichiers <strong>Samba</strong> avec permissions granulaires et isolation des flux.
+          </p>
+          <div class="tech-stack">
+            <span>Linux</span>
+            <span>OpenVPN</span>
+            <span>Samba</span>
+            <span>Wireshark</span>
+            <span>UFW</span>
+          </div>
+        </article>
+
+        <!-- Projet 2 -->
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-tag">Web & Backend</span>
+            <span class="project-date">2025 - 2026</span>
+          </div>
+          <h3>Plateformes Web & Middlewares Personnalisés</h3>
+          <p>
+            Conception d'applications web structurées (LAMP / Node.js) avec gestion stricte des rôles (Admin, Professeurs, Étudiants). Implémentation de <em>Middlewares de Rate-Limiting</em> et gestion avancée de jetons d'accès via Graph API.
+          </p>
+          <div class="tech-stack">
+            <span>PHP / MySQL</span>
+            <span>Node.js</span>
+            <span>Rate Limiting</span>
+            <span>REST API</span>
+          </div>
+        </article>
+
+        <!-- Projet 3 -->
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-tag">Automation & Scripting</span>
+            <span class="project-date">2026</span>
+          </div>
+          <h3>Pipelines d'Automatisation & Batch Processing</h3>
+          <p>
+            Conception de workflows d'automatisation sur instance local <strong>n8n</strong>. Traitement de données par lots, génération et planification de contenus connectés à des APIs tierces via des requêtes HTTP sécurisées.
+          </p>
+          <div class="tech-stack">
+            <span>n8n</span>
+            <span>Python</span>
+            <span>JSON/APIs</span>
+            <span>Webhooks</span>
+          </div>
+        </article>
+
+        <!-- Projet 4 -->
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-tag">Algorithmique & Simulation</span>
+            <span class="project-date">2026</span>
+          </div>
+          <h3>Modélisation Topologique & Théorie des Graphes</h3>
+          <p>
+            Développement de scripts de simulation visualisant les topologies réseaux filaires et le calcul des plus courts chemins (Dijkstra/A*). Optimisation pour reproduire fidèlement l'aspect des simulateurs type Packet Tracer.
+          </p>
+          <div class="tech-stack">
+            <span>Python</span>
+            <span>Graph Theory</span>
+            <span>Network Topology</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Section Formation & Certifications -->
+    <section class="section" id="formation">
+      <div class="section-title">
+        <h2>Parcours & Accréditations</h2>
+        <p>Formations académiques et certifications professionnelles validées.</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- Formation -->
+        <div class="box">
+          <h3 class="box-title">🎓 Formation Académique</h3>
+          <div class="timeline-v2">
+            <div class="tl-item">
+              <h4>EPHEP Smart School</h4>
+              <span class="tl-date">Bamako, Mali</span>
+              <p>Specialité Informatique, Réseaux & Télécommunications.</p>
+            </div>
+            <div class="tl-item">
+              <h4>Lycée Privé Teriya</h4>
+              <span class="tl-date">Mention Bien</span>
+              <p>Baccalauréat Scientifique (Série Sciences Exactes).</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="section" id="competences">
-      <div class="section-header">
-        <div>
-          <h2>Compétences visibles</h2>
-          <p>Les blocs ci-dessous reprennent les compétences les plus utiles pour un profil informatique polyvalent : réseau, système, sécurité et développement.</p>
-        </div>
-      </div>
-      <div class="section-body">
-        <div class="columns-3">
-          <article class="card">
-            <h3>Compétences techniques</h3>
-            <div class="skill-bars">
-              <div class="bar web"><span>Développement web · HTML, CSS, JavaScript, PHP</span></div>
-              <div class="bar reseaux"><span>Réseaux · Packet Tracer, concepts CCNA, câblage, supervision</span></div>
-              <div class="bar sys"><span>Systèmes · Linux, Windows, Windows Server</span></div>
-              <div class="bar secu"><span>Sécurité · OpenVPN, Wireshark, bases de cyberdéfense</span></div>
-              <div class="bar data"><span>Données · MySQL, MCD, Git / GitHub</span></div>
-            </div>
-          </article>
-          <article class="card">
-            <h3>Qualités de travail</h3>
-            <ul class="list-tight">
-              <li>Esprit d’équipe et communication simple</li>
-              <li>Capacité d’adaptation rapide</li>
-              <li>Rigueur sur la documentation</li>
-              <li>Goût pour l’apprentissage autonome</li>
-              <li>Approche orientée solution</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Repères professionnels</h3>
-            <div class="tags">
-              <span class="tag">Support IT</span>
-              <span class="tag">Réseaux</span>
-              <span class="tag">Cybersécurité</span>
-              <span class="tag">Administration système</span>
-              <span class="tag">Web</span>
-              <span class="tag">Documentation</span>
-            </div>
-          </article>
+        <!-- Certifications -->
+        <div class="box">
+          <h3 class="box-title">📜 Badges & Certifications Cisco / Cyber</h3>
+          <ul class="cert-list">
+            <li>
+              <strong>Ethical Hacker</strong>
+              <span>Pratique des bases du pentest & de la défense.</span>
+            </li>
+            <li>
+              <strong>Networking Devices & Basics (Cisco NetAcad)</strong>
+              <span>Commutation, routage et équipement réseau.</span>
+            </li>
+            <li>
+              <strong>Introduction to Cybersecurity</strong>
+              <span>Principes fondamentaux de la protection des données.</span>
+            </li>
+            <li>
+              <strong>Participant aux Journées Nationales de Cybersécurité</strong>
+              <span>Veille technique & conférences spécialisées.</span>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="section" id="realisations">
-      <div class="section-header">
-        <div>
-          <h2>Réalisations et projets</h2>
-          <p>Des projets choisis pour montrer la maturité technique, la logique de service et la capacité à transformer une idée en outil concret.</p>
-        </div>
-      </div>
-      <div class="section-body">
-        <div class="timeline">
-          <article class="story timeline-item">
-            <div class="time">Août 2025</div>
-            <p><strong>OpenVPN local</strong> — mise en place d’un réseau sécurisé de test pour simuler des connexions distantes et la protection d’accès.</p>
-          </article>
-          <article class="story timeline-item">
-            <div class="time">Juillet 2025</div>
-            <p><strong>Samba File Server</strong> — serveur de fichiers local pour centraliser, partager et organiser des ressources en environnement interne.</p>
-          </article>
-          <article class="story timeline-item">
-            <div class="time">Mars 2025</div>
-            <p><strong>Recy’Plast</strong> — application web pensée pour accompagner un projet de recyclage en valorisant le suivi et la présentation du service.</p>
-          </article>
-          <article class="story timeline-item">
-            <div class="time">Janvier 2025</div>
-            <p><strong>Plateforme LAMP sécurisée</strong> — espace avec rôles utilisateurs pour admin, étudiants et professeurs dans un cadre d’exploitation simple et structuré.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="formation">
-      <div class="section-header">
-        <div>
-          <h2>Formation et certifications</h2>
-          <p>Une synthèse compacte pour conserver l’élégance visuelle du format magazine tout en gardant les éléments utiles au recrutement.</p>
-        </div>
-      </div>
-      <div class="section-body">
-        <div class="columns-3">
-          <article class="card">
-            <h3>Formation</h3>
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="time">EPHEP Smart School</div>
-                <p>Formation en informatique, réseaux et télécommunications.</p>
-              </div>
-              <div class="timeline-item">
-                <div class="time">Lycée Privé Teriya</div>
-                <p>Baccalauréat malien, série sciences exactes, mention Bien.</p>
-              </div>
-            </div>
-          </article>
-          <article class="card">
-            <h3>Certifications choisies</h3>
-            <ul class="list-tight">
-              <li>Introduction to Cybersecurity</li>
-              <li>Networking Basics</li>
-              <li>Networking Devices</li>
-              <li>Ethical Hacker</li>
-              <li>Journées Nationales de Cybersécurité</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Langues</h3>
-            <ul class="list-tight">
-              <li>Français — courant à l’écrit et à l’oral</li>
-              <li>Bambara — parlé couramment</li>
-              <li>Anglais — écrit et parlé</li>
-              <li>Arabe — écrit</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
+    <!-- Section Contact -->
     <section class="section" id="contact">
-      <div class="section-header">
-        <div>
-          <h2>Contact</h2>
-          <p>Version simple, nette et professionnelle, sans surcharge inutile.</p>
+      <div class="contact-box">
+        <h2>Travaillons Ensemble</h2>
+        <p>Vous recherchez un profil rigoureux en support IT, administration réseau ou développement web ? N'hésitez pas à me contacter.</p>
+        
+        <div class="contact-details">
+          <div class="c-item">📍 Bamako, Mali (Yirimadio)</div>
+          <div class="c-item">📞 +223 66 61 67 05</div>
+          <div class="c-item">✉️ sarrsaid00@gmail.com</div>
         </div>
-      </div>
-      <div class="section-body">
-        <div class="columns-3">
-          <article class="card">
-            <h3>Coordonnées</h3>
-            <ul class="list-tight">
-              <li>+223 66 61 67 05</li>
-              <li>sarrsaid00@gmail.com</li>
-              <li>Yirimadio, ATTBougou 759 Logements</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Présence numérique</h3>
-            <ul class="list-tight">
-              <li><a href="https://www.linkedin.com/in/said-sarr-b972b4234/">LinkedIn</a></li>
-              <li><a href="https://github.com/SaidS007">GitHub</a></li>
-              <li><a href="https://saids007.github.io/said/">Portfolio</a></li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Document prêt à partager</h3>
-            <p style="line-height:1.8;margin:0;">Le PDF original reste disponible, tandis que ce site présente une version plus forte visuellement et mieux alignée avec un environnement technique exigeant.</p>
-          </article>
+
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/said-sarr-b972b4234/" target="_blank" class="btn outline">LinkedIn</a>
+          <a href="https://github.com/SaidS007" target="_blank" class="btn outline">GitHub</a>
+          <a href="mailto:sarrsaid00@gmail.com" class="btn primary">Envoyer un message</a>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="footer">
-    <div class="container footer-card">
-      <div><strong>Said Sarr</strong> — CV magazine en ligne</div>
-      <div>Développement web · Réseaux · Support IT · Cybersécurité</div>
+    <div class="container footer-inner">
+      <p>© 2026 Said Sarr — Construit avec sobriété et précision technique.</p>
+      <p class="tech-foot">HTML5 · CSS3 · Pure JS · Zero Framework Slop</p>
     </div>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
