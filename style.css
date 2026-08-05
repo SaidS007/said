@@ -605,10 +605,9 @@ body.light-theme .nav-sticky {
 }
 
 /* RESPONSIVE */
-@media (max-width: 868px) {
-  .top-links {
-    font-size: 10px;
-  }
+@media (max-width: 760px) {
+  .status-indicator { font-size: 10px; }
+  .email-text { display: none; }
   .hero { grid-template-columns: 1fr; padding: 40px 24px; }
   .grid-2 { grid-template-columns: 1fr; }
   .nav-menu { display: none; } /* On unifie la nav responsive */
