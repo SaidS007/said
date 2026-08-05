@@ -5,14 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (storedTheme === 'light') {
     document.body.classList.add('light-theme');
-    if (themeToggleBtn) themeToggleBtn.textContent = '☀️';
+    if (themeToggleBtn) themeToggleBtn.textContent = ' ☀️';
   }
 
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('light-theme');
       const isLight = document.body.classList.contains('light-theme');
-      themeToggleBtn.textContent = isLight ? '☀️' : '🌙';
+      themeToggleBtn.textContent = isLight ? ' ☀️' : ' 🌙';
       localStorage.setItem('portfolio-theme', isLight ? 'light' : 'dark');
     });
   }
