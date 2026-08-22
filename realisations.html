@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Réalisations & Infrastructures — Said Sarr</title>
   <meta name="description" content="Catalogue complet des projets d'infrastructures réseaux, serveurs et applications de Said Sarr." />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <style>
     /* Styles spécifiques pour les fiches de projets détaillées */
@@ -21,149 +23,373 @@
       grid-template-columns: 1fr 1.5fr;
       gap: 2rem;
       align-items: center;
+      transition: var(--transition);
     }
+
+    .project-detail-card:hover {
+      border-color: var(--accent);
+      background-color: var(--bg-card-hover);
+    }
+
     @media (max-width: 868px) {
-      .project-detail-card { grid-template-columns: 1fr; }
+      .project-detail-card {
+        grid-template-columns: 1fr;
+      }
     }
+
     .project-detail-img {
       width: 100%;
       height: 240px;
       object-fit: cover;
       border-radius: 8px;
       border: 1px solid var(--border-color);
+      cursor: pointer;
+      transition: var(--transition);
+      background-color: var(--bg-main);
     }
+
+    .project-detail-img.zoomed {
+      transform: scale(1.05);
+      border-color: var(--accent);
+    }
+
     .project-meta-item {
       display: inline-block;
       font-size: 0.8rem;
       font-family: var(--font-mono);
       color: var(--accent-primary);
-      background: var(--bg-body);
+      background: var(--bg-main);
       padding: 0.25rem 0.6rem;
       border-radius: 4px;
       margin-right: 0.5rem;
       margin-bottom: 0.5rem;
+      border: 1px solid var(--border-color);
     }
+
     .tech-stack-list {
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
       margin-top: 1rem;
     }
+
+    .project-actions-detail {
+      display: flex;
+      gap: 12px;
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-color);
+    }
   </style>
 </head>
+
 <body>
 
-  <div class="top-bar">
+  <!-- Top Status Strip -->
+  <header class="top-bar">
     <div class="container top-bar-inner">
-      <div>⚙️ Réalisations & Déploiements</div>
-      <div><a href="index.html">← Acceuil</a></div>
+      <div class="status-indicator">
+        <span class="dot pulse"></span>
+        <span>Ouvert aux Opportunités (Bamako & Distant)</span>
+      </div>
+      <div class="top-links">
+        <a href="mailto:sarrsaid00@gmail.com">✉️ </a>
+        <a class="email-text" href="mailto:sarrsaid00@gmail.com">sarrsaid00@gmail.com</a>
+        <button id="theme-toggle" class="icon-btn" aria-label="Changer de thème"> 🌙</button>
+      </div>
     </div>
-  </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="nav-sticky">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">&lt;SaidSarr /&gt;</a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link" id="nav-home">Accueil</a></li>
+        <li><a href="cv.html" class="nav-link" id="nav-cv">Dossier CV</a></li>
+        <li><a href="realisations.html" class="nav-link active" id="nav-projects">Réalisations</a></li>
+        <li><a href="certifs.html" class="nav-link" id="nav-certs">Certifications</a></li>
+        <li><a href="index.html#contact" class="btn-sm primary nav-link" id="nav-contact">Me contacter</a></li>
+      </ul>
+      <!-- Bouton hamburger mobile -->
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-nav-drawer">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
 
   <header class="hero" style="padding: 2.5rem 0 1.5rem;">
     <div class="container">
-      <h1 class="hero-title" style="font-size: 2.8rem;">Projets & Architectures</h1>
-      <p class="hero-subtitle">
+      <h1 style="font-size: 2.8rem; margin-bottom: 8px;">Projets & Architectures</h1>
+      <p style="color: var(--text-secondary); font-size: 1.1rem;">
         Focus détaillé sur les topologies virtuelles, serveurs locaux et applications déployés.
       </p>
     </div>
   </header>
 
-  <nav class="sticky-nav">
-    <div class="container nav-inner">
-      <a href="index.html" class="nav-link">Accueil</a>
-      <a href="cv.html" class="nav-link">Dossier CV</a>
-      <a href="realisations.html" class="nav-link active">Réalisations</a>
-      <a href="certifs.html" class="nav-link">Certifications</a>
-    </div>
-  </nav>
-
   <main class="container" style="padding: 2.5rem 0;">
 
-    <!-- Projet 1 -->
-    <article class="project-detail-card">
-      <img src="img/os.png" alt="Architecture OpenVPN" class="project-detail-img" />
+    <!-- Projet 1: AutoPublish -->
+    <article class="project-detail-card" id="autopublish">
+      <img src="img/autopublish.png" alt="AutoPublish" class="project-detail-img" />
       <div>
-        <span class="project-meta-item">RÉSEAU & SÉCURITÉ</span>
-        <span class="project-meta-item">AOÛT 2025</span>
-        <h2 style="color: var(--text-heading); margin: 0.5rem 0;">Serveur OpenVPN & Réseau Distant Sécurisé</h2>
-        <p style="color: var(--text-muted); margin-bottom: 1rem;">
-          <strong>Contexte :</strong> Modéliser un accès à distance sécurisé pour des collaborateurs nomades devant accéder au réseau interne sans exposer les services au web public.
+        <span class="project-meta-item">AUTOMATION & IA</span>
+        <span class="project-meta-item">AOÛT 2026</span>
+        <h2 style="color: var(--text-primary); margin: 0.5rem 0;">AutoPublish — Automatisation de Publications Multi-Plateforme</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <strong>Problématique :</strong> Publier régulièrement du contenu technique pertinent sur les réseaux sociaux professionnels (LinkedIn, Facebook) requiert une veille continue et un travail de rédaction long.
         </p>
-        <p style="color: var(--text-muted);">
-          <strong>Réalisation :</strong> Déploiement d'un serveur OpenVPN sous Linux, génération d'une autorité de certification (CA), création de certificats clients chiffrés et routage des flux de données.
+        <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <strong>Solution :</strong> Automatisation complète du traitement de flux RSS ciblés. Les articles détectés sont résumés et restructurés par un LLM de Hugging Face sous forme de posts optimisés pour le web social.
+        </p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          <strong>Architecture :</strong> Un script NodeJS exécuté périodiquement au sein d'un conteneur Docker, synchronisé avec des scénarios Low-Code dans n8n pour orchestrer l'ingestion, le traitement IA et les publications sur les APIs LinkedIn et Facebook.
         </p>
         <div class="tech-stack-list">
-          <span class="pill">OpenVPN</span>
-          <span class="pill">Linux Debian</span>
-          <span class="pill">PKI / TLS</span>
-          <span class="pill">IPTables</span>
+          <span class="pill">n8n</span>
+          <span class="pill">Hugging Face LLM</span>
+          <span class="pill">NodeJS / Express</span>
+          <span class="pill">APIs Social</span>
+          <span class="pill">Docker</span>
+        </div>
+        <div class="project-actions-detail">
+          <a href="https://github.com/SaidS007/n8n-autopublish" target="_blank" class="btn btn-sm primary">Dépôt GitHub</a>
+          <a href="#" class="btn btn-sm outline">Workflow n8n</a>
         </div>
       </div>
     </article>
 
-    <!-- Projet 2 -->
-    <article class="project-detail-card">
-      <img src="img/samba.jpg" alt="Serveur Samba" class="project-detail-img" />
+    <!-- Projet 2: Emploi365 -->
+    <article class="project-detail-card" id="emploi365">
+      <img src="img/emploi365.png" alt="Emploi365" class="project-detail-img" />
       <div>
-        <span class="project-meta-item">ADMINISTRATION SYSTÈME</span>
-        <span class="project-meta-item">JUILLET 2025</span>
-        <h2 style="color: var(--text-heading); margin: 0.5rem 0;">Serveur de Fichiers d'Entreprise Samba</h2>
-        <p style="color: var(--text-muted); margin-bottom: 1rem;">
-          <strong>Contexte :</strong> Besoin de centraliser les fichiers partagés d'un établissement tout en appliquant une stricte séparation des droits d'accès par service.
+        <span class="project-meta-item">WEB & RECRUTEMENT</span>
+        <span class="project-meta-item">MAI 2026</span>
+        <h2 style="color: var(--text-primary); margin: 0.5rem 0;">Emploi365 — Plateforme de Recrutement & Distribution d'Offres</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <strong>Problématique :</strong> Distribuer massivement des opportunités d'emploi par courriel à des listes d'abonnés sans être bloqué par les serveurs antispam et en assurant le suivi d'audience.
         </p>
-        <p style="color: var(--text-muted);">
-          <strong>Réalisation :</strong> Configuration du démon `smbd`, création des groupes Linux, définition des partages à accès restreint et intégration de règles de sauvegarde.
+        <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <strong>Solution :</strong> Conception d'une plateforme web gérant des files d'attente d'envoi d'e-mails asynchrones, un rate-limiting applicatif sur mesure, et un suivi des indicateurs de clic.
+        </p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          <strong>Architecture :</strong> API REST en Node.js/Express connectée à des serveurs de messagerie configurés avec une authentification DNS stricte (SPF, DKIM, DMARC), couplée à n8n pour les traitements par lots et Google Analytics.
         </p>
         <div class="tech-stack-list">
-          <span class="pill">Samba</span>
-          <span class="pill">Linux</span>
-          <span class="pill">Permissions POSIX</span>
-          <span class="pill">Partage Réseau</span>
+          <span class="pill">Node.js</span>
+          <span class="pill">Express</span>
+          <span class="pill">Custom Rate-Limiting</span>
+          <span class="pill">DNS Auth (SPF/DKIM)</span>
+          <span class="pill">n8n</span>
+          <span class="pill">Google Analytics</span>
+        </div>
+        <div class="project-actions-detail">
+          <a href="https://emploi365.ml" target="_blank" class="btn btn-sm primary">Accéder au Site</a>
+          <a href="https://facebook.com/emploi365" target="_blank" class="btn btn-sm outline" aria-disabled="true">Page Facebook</a>
         </div>
       </div>
     </article>
 
-    <!-- Projet 3 -->
-    <article class="project-detail-card">
-      <img src="img/site.jpg" alt="Projet Recy'Plast" class="project-detail-img" />
+    <!-- Projet 3: Recy'Plast -->
+    <article class="project-detail-card" id="recyplast">
+      <img src="img/recyplast.png" alt="Projet Recy'Plast" class="project-detail-img" />
       <div>
-        <span class="project-meta-item">DÉVELOPPEMENT WEB</span>
+        <span class="project-meta-item">WEB & ÉCOLOGIE</span>
         <span class="project-meta-item">MARS 2025</span>
-        <h2 style="color: var(--text-heading); margin: 0.5rem 0;">Recy’Plast — Plateforme de Valorisation Écologique</h2>
-        <p style="color: var(--text-muted); margin-bottom: 1rem;">
-          <strong>Contexte :</strong> Digitalisation d'une initiative locale de recyclage plastique à Bamako pour sensibiliser et suivre la collecte des déchets.
+        <h2 style="color: var(--text-primary); margin: 0.5rem 0;">Recy’Plast — Plateforme de Valorisation Écologique</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <strong>Contexte :</strong> Digitalisation d'une initiative locale de collecte et valorisation des déchets plastiques à Bamako pour sensibiliser et suivre les performances de collecte.
         </p>
-        <p style="color: var(--text-muted);">
-          <strong>Réalisation :</strong> Développement complet de l'interface en responsive design, intégration d'un formulaire dynamique et mise en avant des indicateurs clés d'impact.
+        <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <strong>Réalisation :</strong> Développement complet de l'interface en responsive design, intégration d'un module d'enregistrement des collectes et affichage d'indicateurs de performance écologique.
+        </p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          <strong>Architecture :</strong> Client web responsive structuré en Vanilla JS et Bootstrap, connecté à une base de données MySQL via des scripts PHP d'insertion et d'authentification sécurisés.
         </p>
         <div class="tech-stack-list">
-          <span class="pill">HTML5 / CSS3</span>
+          <span class="pill">PHP Native</span>
+          <span class="pill">MySQL</span>
           <span class="pill">JavaScript</span>
-          <span class="pill">PHP / MySQL</span>
-          <span class="pill">UI/UX</span>
+          <span class="pill">Bootstrap</span>
+          <span class="pill">UI/UX Design</span>
+        </div>
+        <div class="project-actions-detail">
+          <a href="https://github.com/SaidS007/recyplast-web" target="_blank" class="btn btn-sm primary">Code Source GitHub</a>
+          <a href="#" class="btn btn-sm outline">Rapport de Projet</a>
         </div>
       </div>
     </article>
 
-    <!-- Projet 4 -->
-    <article class="project-detail-card">
-      <img src="img/apache-support.jpeg" alt="Plateforme LAMP" class="project-detail-img" />
+    <!-- Projet 4: Drupal / Opigno LMS -->
+    <article class="project-detail-card" id="drupal-opigno">
+      <img src="img/drupal_opigno_lms.png" alt="Drupal / Opigno LMS" class="project-detail-img" />
       <div>
-        <span class="project-meta-item">INFRASTRUCTURE WEB</span>
-        <span class="project-meta-item">JANVIER 2025</span>
-        <h2 style="color: var(--text-heading); margin: 0.5rem 0;">Environnement Multi-Rôles LAMP</h2>
-        <p style="color: var(--text-muted); margin-bottom: 1rem;">
-          <strong>Contexte :</strong> Hébergement d'un portail éducatif nécessitant une authentification sécurisée et une séparation des rôles (Admin, Professeurs, Étudiants).
+        <span class="project-meta-item">E-LEARNING & LMS</span>
+        <span class="project-meta-item">NOVEMBRE 2025</span>
+        <h2 style="color: var(--text-primary); margin: 0.5rem 0;">Intégration Drupal 10 & Opigno LMS 3.2.0</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <strong>Problématique :</strong> Centraliser et héberger des cours en ligne dans un espace structuré et sécurisé pour un établissement d'enseignement supérieur.
         </p>
-        <p style="color: var(--text-muted);">
-          <strong>Réalisation :</strong> Installation et sécurisation du serveur web Apache, configuration de la base MySQL, écriture des scripts d'authentification et gestion de sessions HTTP.
+        <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <strong>Solution :</strong> Installation, sécurisation et administration d'un environnement LMS robuste et open-source basé sur Drupal.
+        </p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          <strong>Architecture :</strong> Serveur Apache et PHP configurés sous Linux, dépendances PHP et modules Drupal gérés via Composer. L'éditeur de contenu CKEditor est enrichi d'outils d'équations scientifiques pour les enseignants.
         </p>
         <div class="tech-stack-list">
+          <span class="pill">Drupal 10</span>
+          <span class="pill">Opigno LMS 3.2</span>
+          <span class="pill">Composer</span>
+          <span class="pill">Apache / MySQL</span>
+          <span class="pill">CKEditor</span>
+        </div>
+        <div class="project-actions-detail">
+          <a href="#" class="btn btn-sm primary">Documentation Technique</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Projet 5: MEM Courier & Open Capture -->
+    <article class="project-detail-card" id="mem-courier">
+      <img src="img/mem_courrier.png" alt="MEM Courier & Open Capture" class="project-detail-img" />
+      <div>
+        <span class="project-meta-item">GED & DEVOPS</span>
+        <span class="project-meta-item">SEPTEMBRE 2025</span>
+        <h2 style="color: var(--text-primary); margin: 0.5rem 0;">Déploiement Automatisé MEM Courier & Open Capture</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <strong>Problématique :</strong> Automatiser l'installation et l'interconnexion de plusieurs services GED (Gestion Électronique des Documents) sans conflits de versions.
+        </p>
+        <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <strong>Solution :</strong> Automatisation complète du déploiement via Docker et scripts Bash pour un lancement unifié et isolé en une commande.
+        </p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          <strong>Architecture :</strong> Séparation logique des services en conteneurs (Frontend Angular, Backend Express, moteur de traitement d'images Open Capture OCR) reliés par un réseau Docker interne.
+        </p>
+        <div class="tech-stack-list">
+          <span class="pill">Angular</span>
+          <span class="pill">Express.js</span>
+          <span class="pill">Docker & Compose</span>
+          <span class="pill">OCR Open Capture</span>
+          <span class="pill">Bash Scripting</span>
+        </div>
+        <div class="project-actions-detail">
+          <a href="https://github.com/SaidS007/awd-mem-courier" target="_blank" class="btn btn-sm primary">Dépôt Git</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Projet 6: Site Vitrine GGC -->
+    <article class="project-detail-card" id="site-ggc">
+      <img src="img/ggc.png" alt="Site Vitrine GGC" class="project-detail-img" />
+      <div>
+        <span class="project-meta-item">WORDPRESS & SEO</span>
+        <span class="project-meta-item">JUILLET 2025</span>
+        <h2 style="color: var(--text-primary); margin: 0.5rem 0;">Site Vitrine Entreprise GGC</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <strong>Problématique :</strong> Moderniser la communication institutionnelle du groupe GGC avec un site esthétique, rapide et immunisé contre les cyberattaques ciblant les CMS.
+        </p>
+        <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <strong>Solution :</strong> Intégration WordPress sécurisée, structuration de l'information pour optimiser le SEO (référencement naturel) et configuration de filtres de requêtes sql.
+        </p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          <strong>Architecture :</strong> Plateforme WordPress hébergée sous Apache, base MySQL nettoyée de ses privilèges excessifs, et configuration de règles HTTPS et de caches CDN.
+        </p>
+        <div class="tech-stack-list">
+          <span class="pill">WordPress</span>
+          <span class="pill">PHP</span>
+          <span class="pill">MySQL Hardening</span>
+          <span class="pill">SEO Optimisation</span>
+        </div>
+        <div class="project-actions-detail">
+          <a href="https://ggc.group-awd.org" target="_blank" class="btn btn-sm primary">Aperçu du Site</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Projet 7: SOC & Supervision -->
+    <article class="project-detail-card" id="soc-supervision">
+      <img src="img/soc_supervision.png" alt="SOC & Supervision" class="project-detail-img" />
+      <div>
+        <span class="project-meta-item">CYBERSÉCURITÉ</span>
+        <span class="project-meta-item">JUIN 2025</span>
+        <h2 style="color: var(--text-primary); margin: 0.5rem 0;">SOC & Supervision Réseau (Wazuh, Grafana, Zeek)</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <strong>Problématique :</strong> Assurer la visibilité et la détection d'attaques ou de comportements anormaux au sein d'une infrastructure cloud et locale.
+        </p>
+        <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <strong>Solution :</strong> Déploiement d'une stack de monitoring de sécurité. Les logs systèmes sont centralisés et corrélés par Wazuh, tandis que l'IDS Zeek analyse les flux réseaux.
+        </p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          <strong>Architecture :</strong> Agents Wazuh configurés sur les hôtes clés, capteur Zeek positionné en écoute passive, et dashboards Grafana personnalisés hébergés sous Dokploy dans des instances Docker.
+        </p>
+        <div class="tech-stack-list">
+          <span class="pill">Wazuh SIEM</span>
+          <span class="pill">Grafana Dashboards</span>
+          <span class="pill">Zeek IDS</span>
+          <span class="pill">Dokploy PaaS</span>
+          <span class="pill">Docker Containers</span>
+        </div>
+        <div class="project-actions-detail">
+          <a href="https://github.com/SaidS007/awd-soc-for-dev/blob/main/README.md" class="btn btn-sm primary">Schéma d'Architecture</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Projet 8: Quiz Citoyenne_Futee -->
+    <article class="project-detail-card" id="quiz-citoyenne">
+      <img src="img/quiz_citoyenne.png" alt="Quiz Citoyenne Futee" class="project-detail-img" />
+      <div>
+        <span class="project-meta-item">WEB APP & API</span>
+        <span class="project-meta-item">MARS 2026</span>
+        <h2 style="color: var(--text-primary); margin: 0.5rem 0;">Quiz Citoyenne_Futee — Application de Sensibilisation Citoyenne</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <strong>Problématique :</strong> Sensibiliser et former le jeune public sur les questions civiques de manière engageante, avec un chargement rapide et une gestion dynamique des questions.
+        </p>
+        <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <strong>Solution :</strong> Application Web Single Page (SPA) responsive présentant un quiz dynamique, avec scoring instantané et corrections argumentées.
+        </p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          <strong>Architecture :</strong> Front-end modulaire développé en Angular et API Back-end conçue sous Django REST Framework pour administrer les sessions de quiz et stocker de manière sécurisée les données dans PostgreSQL.
+        </p>
+        <div class="tech-stack-list">
+          <span class="pill">Angular</span>
+          <span class="pill">Django REST</span>
+          <span class="pill">PostgreSQL / SQLite</span>
+          <span class="pill">API REST</span>
+        </div>
+        <div class="project-actions-detail">
+          <a href="https://github.com/SaidS007" target="_blank" class="btn btn-sm primary">Dépôt GitHub</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Projet 9: Projets d'Infrastructures Antérieurs -->
+    <article class="project-detail-card" id="infra-anterieurs">
+      <img src="img/os.png" alt="Samba & LAMP" class="project-detail-img" />
+      <div>
+        <span class="project-meta-item">RÉSEAUX & SERVEURS</span>
+        <span class="project-meta-item">2024 - 2025</span>
+        <h2 style="color: var(--text-primary); margin: 0.5rem 0;">Serveur Samba & Environnement Multi-Rôles LAMP</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <strong>Contexte :</strong> Offrir à un réseau d'établissement des services stables de partage de fichiers administratifs et une plateforme web locale sécurisée avec gestion de privilèges.
+        </p>
+        <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <strong>Réalisation :</strong> Configuration du démon `smbd` sous Ubuntu Server avec groupes isolés. Déploiement d'un serveur Apache sécurisé gérant les rôles utilisateur (Admins, Profs, Élèves).
+        </p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          <strong>Architecture :</strong> Système Samba intégré aux permissions POSIX Linux. Stack LAMP locale configurée avec des sessions PHP cryptées et connexions MySQL sécurisées via PDO.
+        </p>
+        <div class="tech-stack-list">
+          <span class="pill">Ubuntu Server</span>
+          <span class="pill">Samba</span>
           <span class="pill">Apache2</span>
-          <span class="pill">MySQL</span>
           <span class="pill">PHP PDO</span>
-          <span class="pill">Gestion Rôles</span>
+          <span class="pill">MySQL</span>
+        </div>
+        <div class="project-actions-detail">
+          <a href="https://github.com/SaidS007/" class="btn btn-sm primary">GitHub</a>
         </div>
       </div>
     </article>
@@ -183,7 +409,7 @@
 
   <script src="script.js"></script>
   <script>
-    // Script d'interaction spécifique aux projets (par exemple zoom d'images au clic)
+    // Zoom d'images au clic
     document.addEventListener('DOMContentLoaded', () => {
       const projectImgs = document.querySelectorAll('.project-detail-img');
       projectImgs.forEach(img => {
@@ -194,4 +420,5 @@
     });
   </script>
 </body>
+
 </html>

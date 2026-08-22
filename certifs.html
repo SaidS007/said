@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Certifications & Badges — Said Sarr</title>
-  <meta name="description" content="Accréditations et certifications Cisco NetAcad et Cybersécurité de Said Sarr." />
+  <meta name="description" content="Accréditations et certifications Cisco NetAcad, Cybersécurité et engagements de Said Sarr." />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <style>
     /* Styles spécifiques pour le filtrage et les badges */
@@ -23,7 +23,7 @@
       border-radius: 50px;
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      color: var(--text-muted);
+      color: var(--text-secondary);
       cursor: pointer;
       font-family: var(--font-mono);
       font-size: 0.85rem;
@@ -31,8 +31,8 @@
     }
     .filter-btn.active, .filter-btn:hover {
       background: var(--accent-glow);
-      color: var(--accent-primary);
-      border-color: var(--accent-primary);
+      color: var(--accent);
+      border-color: var(--accent);
     }
     .cert-full-grid {
       display: grid;
@@ -46,17 +46,21 @@
       padding: 1.5rem;
       text-align: center;
       transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .cert-item-card:hover {
       transform: translateY(-4px);
-      border-color: var(--accent-primary);
+      border-color: var(--accent);
+      background-color: var(--bg-card-hover);
     }
     .cert-item-card img {
       width: 90px;
       height: 90px;
       object-fit: contain;
       margin: 0 auto 1rem;
-      background: var(--bg-body);
+      background: var(--bg-main);
       padding: 8px;
       border-radius: 12px;
       border: 1px solid var(--border-color);
@@ -65,112 +69,418 @@
       display: inline-block;
       font-size: 0.75rem;
       font-family: var(--font-mono);
-      color: var(--accent-primary);
+      color: var(--accent);
       margin-bottom: 0.5rem;
+    }
+    .cert-verify-btn {
+      margin-top: auto;
+      padding-top: 1rem;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .cert-verify-btn:hover {
+      text-decoration: underline;
+    }
+
+    /* === TryHackMe Carousel === */
+    .thm-section {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: var(--bg-card);
+      border: 1px solid #63ff47;
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+    }
+    .thm-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #55e065, #63ff47, #55e065);
+      background-size: 200% 100%;
+      animation: thm-shimmer 2s linear infinite;
+    }
+    @keyframes thm-shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .thm-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 1.5rem;
+    }
+    .thm-logo-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #63ff47;
+      background: #63ff471f;
+      border: 1px solid #63ff4766;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+    }
+    .thm-header h2 {
+      font-size: 1.4rem;
+      color: var(--text-primary);
+      margin: 0;
+    }
+    .thm-header p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    .thm-carousel-wrapper {
+      position: relative;
+    }
+    .thm-carousel-track {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      padding: 0.5rem 0.25rem 1rem;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .thm-carousel-track::-webkit-scrollbar { display: none; }
+    .thm-badge-slide {
+      flex: 0 0 160px;
+      scroll-snap-align: start;
+      background: var(--bg-main);
+      border: 1px solid rgba(99, 255, 71, 0.25);
+      border-radius: 12px;
+      padding: 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .thm-badge-slide:hover {
+      border-color: #63ff47;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px #63ff4733;
+    }
+    .thm-badge-slide img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(99, 255, 71, 0.302));
+      transition: transform 0.25s ease;
+    }
+    .thm-badge-slide:hover img {
+      transform: scale(1.08);
+    }
+    .thm-badge-slide h3 {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.3;
+      margin: 0;
+    }
+    .thm-badge-slide span {
+      font-size: 0.72rem;
+      color: #63ff47;
+      font-family: var(--font-mono);
+      font-weight: 500;
+    }
+    .thm-carousel-nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 1rem;
+    }
+    .thm-nav-btn {
+      background: var(--bg-main);
+      border: 1px solid rgba(99, 255, 71, 0.4);
+      color: #63ff47;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .thm-nav-btn:hover {
+      background: rgba(99, 255, 71, 0.15);
+      border-color: #63ff47;
+    }
+    .thm-profile-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: #63ff47;
+      text-decoration: none;
+      margin-top: 1rem;
+    }
+    .thm-profile-link:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <div class="top-bar">
+  <!-- Top Status Strip -->
+  <header class="top-bar">
     <div class="container top-bar-inner">
-      <div>🏅Certifications & Accréditations</div>
-      <div><a href="index.html">← Retour à l’accueil</a></div>
+      <div class="status-indicator">
+        <span class="dot pulse"></span>
+        <span>Ouvert aux Opportunités (Bamako & Distant)</span>
+      </div>
+      <div class="top-links">
+        <a href="mailto:sarrsaid00@gmail.com">✉️ </a>
+        <a class="email-text" href="mailto:sarrsaid00@gmail.com">sarrsaid00@gmail.com</a>
+        <button id="theme-toggle" class="icon-btn" aria-label="Changer de thème"> 🌙</button>
+      </div>
     </div>
-  </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="nav-sticky">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">&lt;SaidSarr /&gt;</a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link" id="nav-home">Accueil</a></li>
+        <li><a href="cv.html" class="nav-link" id="nav-cv">Dossier CV</a></li>
+        <li><a href="realisations.html" class="nav-link" id="nav-projects">Réalisations</a></li>
+        <li><a href="certifs.html" class="nav-link active" id="nav-certs">Certifications</a></li>
+        <li><a href="index.html#contact" class="btn-sm primary nav-link" id="nav-contact">Me contacter</a></li>
+      </ul>
+      <!-- Bouton hamburger mobile -->
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-nav-drawer">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
 
   <header class="hero" style="padding: 2.5rem 0 1.5rem;">
     <div class="container">
-      <h1 class="hero-title" style="font-size: 2.8rem;">Badges & Attestations</h1>
-      <p class="hero-subtitle">
-        Validation continue des acquis via Cisco Networking Academy et événements nationaux de cybersécurité.
+      <h1 style="font-size: 2.8rem; margin-bottom: 8px;">Badges & Attestations</h1>
+      <p style="color: var(--text-secondary); font-size: 1.1rem;">
+        Validation continue des acquis via Cisco Networking Academy, engagements et certifications reconnues.
       </p>
     </div>
   </header>
 
-  <nav class="sticky-nav">
-    <div class="container nav-inner">
-      <a href="index.html" class="nav-link">Accueil</a>
-      <a href="cv.html" class="nav-link">Dossier CV</a>
-      <a href="realisations.html" class="nav-link">Réalisations</a>
-      <a href="certifs.html" class="nav-link active">Certifications</a>
-    </div>
-  </nav>
-
   <main class="container" style="padding: 2.5rem 0;">
+
+    <!-- ===  SECTION TRYHACKME BADGES CAROUSEL === -->
+    <section class="thm-section">
+      <div class="thm-header">
+        <div>
+          <div class="thm-logo-tag">⚔️ TryHackMe</div>
+        </div>
+        <div>
+          <h2>Badges de Pratique</h2>
+          <p>Challenges & Rooms complétés sur la plateforme TryHackMe — apprentissage actif par la pratique.</p>
+        </div>
+      </div>
+
+      <div class="thm-carousel-wrapper">
+        <div class="thm-carousel-track" id="thm-track">
+
+          <a href="https://tryhackme.com/Lucky.Said/badges/terminaled" target="_blank" rel="noopener" class="thm-badge-slide">
+            <img src="img/linux.svg" alt="Linux Terminaled" />
+            <h3>Linux</h3>
+            <span>Bases de Linux</span>
+          </a>
+
+          <a href="https://tryhackme.com/Lucky.Said/badges/ohsint" target="_blank" rel="noopener" class="thm-badge-slide">
+            <img src="img/ohsint.svg" alt="OHSINT" />
+            <h3>OHSINT</h3>
+            <span>Reconnaissance Passive</span>
+          </a>
+
+          <a href="https://tryhackme.com/Lucky.Said/badges/linux-privesc" target="_blank" rel="noopener" class="thm-badge-slide">
+            <img src="img/linuxprivesc.svg" alt="Linux Privilege Escalation" />
+            <h3>Linux PrivEsc</h3>
+            <span>Escalade de Privilèges</span>
+          </a>
+
+          <a href="https://tryhackme.com/Lucky.Said/badges/blue" target="_blank" rel="noopener" class="thm-badge-slide">
+            <img src="img/blue.svg" alt="Eternal Blue" />
+            <h3>Eternal Blue</h3>
+            <span>Exploiter Windows</span>
+          </a>
+
+          <a href="https://tryhackme.com/Lucky.Said/badges/hash-cracker" target="_blank" rel="noopener" class="thm-badge-slide">
+            <img src="img/hashcracker.svg" alt="Hash Cracker" />
+            <h3>Hash Cracker</h3>
+            <span>Casser des Chiffrements</span>
+          </a>
+
+          <a href="https://tryhackme.com/Lucky.Said/badges/world-wide-web" target="_blank" rel="noopener" class="thm-badge-slide">
+            <img src="img/howthewebworks.svg" alt="World Wide Web" />
+            <h3>World Wide Web</h3>
+            <span>Exploiter des Apps Web</span>
+          </a>
+
+        </div>
+
+        <div class="thm-carousel-nav">
+          <button class="thm-nav-btn" id="thm-prev" aria-label="Précédent">‹</button>
+          <button class="thm-nav-btn" id="thm-next" aria-label="Suivant">›</button>
+          <a href="https://tryhackme.com/p/Lucky.Said" target="_blank" rel="noopener" class="thm-profile-link">Voir le profil complet →</a>
+        </div>
+      </div>
+    </section>
+    <!-- === FIN SECTION TRYHACKME === -->
 
     <!-- Control bar pour filtrer -->
     <div class="filter-bar">
       <button class="filter-btn active" data-filter="all">Tous les badges</button>
       <button class="filter-btn" data-filter="cyber">Cybersécurité</button>
       <button class="filter-btn" data-filter="network">Réseaux</button>
-      <button class="filter-btn" data-filter="practice">Pratique & Veille</button>
+      <button class="filter-btn" data-filter="system">Systèmes</button>
+      <button class="filter-btn" data-filter="event">Événements & Engagement</button>
     </div>
 
     <div class="cert-full-grid" id="cert-grid">
 
-      <!-- Badge 1 -->
+      <!-- Badge 1: Introduction to Cybersecurity -->
       <div class="cert-item-card" data-category="cyber">
         <img src="img/Introduction_to_Cybersecurity_Badge.png" alt="Introduction to Cybersecurity" />
         <span class="cert-category-tag">Cisco NetAcad</span>
-        <h3 style="color: var(--text-heading); font-size: 1.1rem;">Introduction to Cybersecurity</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Principes de base de la sécurité informatique, confidentialité et protection des données.</p>
+        <h3 style="color: var(--text-primary); font-size: 1.1rem;">Introduction to Cybersecurity</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.4;">Principes de base de la sécurité informatique, confidentialité, protection des données et menaces courantes.</p>
+        <a href="https://www.credly.com/badges/931b7ed9-5d40-481e-9c23-22b7aeb5623d/public_url" target="_blank" class="cert-verify-btn">Vérifier Credly →</a>
       </div>
 
-      <!-- Badge 2 -->
+      <!-- Badge 2: Ethical Hacker -->
       <div class="cert-item-card" data-category="cyber">
         <img src="img/Ethical_Hacker_Badge.png" alt="Ethical Hacker" />
         <span class="cert-category-tag">Cisco NetAcad</span>
-        <h3 style="color: var(--text-heading); font-size: 1.1rem;">Ethical Hacker</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Techniques d'audit de vulnérabilité, mécanismes d'attaque et d'analyse défensive.</p>
+        <h3 style="color: var(--text-primary); font-size: 1.1rem;">Ethical Hacker</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.4;">Techniques d'audit de vulnérabilité, mécanismes d'attaque, cryptographie et analyse défensive.</p>
+        <a href="https://www.credly.com/badges/861d04d8-222e-4b48-b15f-619878303c06/public_url" target="_blank" class="cert-verify-btn">Vérifier Credly →</a>
       </div>
 
-      <!-- Badge 3 -->
+      <!-- Badge 3: Support et sécurité des réseaux -->
+      <div class="cert-item-card" data-category="cyber">
+        <img src="img/Support_Security_Networks_Badge.png" alt="Support et sécurité des réseaux" />
+        <span class="cert-category-tag">Cisco NetAcad</span>
+        <h3 style="color: var(--text-primary); font-size: 1.1rem;">Support et sécurité des réseaux</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.4;">Sécurisation des architectures réseaux, protocoles sécurisés, pare-feu et dépannage de sécurité.</p>
+        <a href="https://www.credly.com/badges/e9fb1294-fbf6-4f2b-a530-842d5efeff28/public_url" target="_blank" class="cert-verify-btn">Vérifier Credly →</a>
+      </div>
+
+      <!-- Badge 4: Networking Basics -->
       <div class="cert-item-card" data-category="network">
         <img src="img/Networking_Basics_Badge.png" alt="Networking Basics" />
         <span class="cert-category-tag">Cisco NetAcad</span>
-        <h3 style="color: var(--text-heading); font-size: 1.1rem;">Networking Basics</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Fondamentaux du modèle OSI, adressage IP, sous-réseaux et protocoles de communication.</p>
+        <h3 style="color: var(--text-primary); font-size: 1.1rem;">Networking Basics</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.4;">Fondamentaux du modèle OSI/TCP-IP, adressage IP, sous-réseaux et protocoles de communication.</p>
+        <a href="https://www.credly.com/badges/213150da-48f3-45ef-b485-9c451403b849/public_url" target="_blank" class="cert-verify-btn">Vérifier Credly →</a>
       </div>
 
-      <!-- Badge 4 -->
+      <!-- Badge 5: Networking Devices and Initial Configurations -->
       <div class="cert-item-card" data-category="network">
-        <img src="img/Networking_Devices_Badge.png" alt="Networking Devices" />
+        <img src="img/Networking_Devices_Badge.png" alt="Networking Devices & Configurations" />
         <span class="cert-category-tag">Cisco NetAcad</span>
-        <h3 style="color: var(--text-heading); font-size: 1.1rem;">Networking Devices</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Configuration et rôle des routeurs, commutateurs et cartes d'interface réseau.</p>
+        <h3 style="color: var(--text-primary); font-size: 1.1rem;">Networking Devices & Initial Configurations</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.4;">Paramétrage initial des équipements Cisco, routage de base, sécurisation de l'accès console et distant.</p>
+        <a href="https://www.credly.com/badges/3bc646e2-49f9-4f3b-a3e3-f224a4cfac4a/public_url" target="_blank" class="cert-verify-btn">Vérifier Credly →</a>
       </div>
 
-      <!-- Badge 5 -->
-      <div class="cert-item-card" data-category="cyber">
-        <img src="img/jnc_1.jpg" alt="Journées Nationales Cybersécurité" />
-        <span class="cert-category-tag">Événement National</span>
-        <h3 style="color: var(--text-heading); font-size: 1.1rem;">Journées Nationales Cybersécurité</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Participation aux conférences et ateliers pratiques sur les enjeux cyber régionaux.</p>
+      <!-- Badge 6: Adressage réseau et dépannage de base -->
+      <div class="cert-item-card" data-category="network">
+        <img src="img/Network_Addressing_Basic_Troubleshooting_Badge.png" alt="Adressage réseau et dépannage" />
+        <span class="cert-category-tag">Cisco NetAcad</span>
+        <h3 style="color: var(--text-primary); font-size: 1.1rem;">Adressage réseau & dépannage de base</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.4;">Méthodologie de dépannage de couches basses, vérification des tables d'adresses et diagnostic IP.</p>
+        <a href="https://www.credly.com/badges/e9fb1294-fbf6-4f2b-a530-842d5efeff28/public_url" target="_blank" class="cert-verify-btn">Vérifier Credly →</a>
       </div>
 
-      <!-- Badge 6 -->
+      <!-- Badge 7: Computer Hardware Basics -->
+      <div class="cert-item-card" data-category="system">
+        <img src="img/Computer_Hardware_Basics_Badge.png" alt="Computer Hardware Basics" />
+        <span class="cert-category-tag">Cisco NetAcad</span>
+        <h3 style="color: var(--text-primary); font-size: 1.1rem;">Computer Hardware Basics</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.4;">Architecture matérielle des ordinateurs, diagnostic des pannes physiques, périphériques et BIOS/UEFI.</p>
+        <a href="https://www.credly.com/badges/e9fb1294-fbf6-4f2b-a530-842d5efeff28/public_url" target="_blank" class="cert-verify-btn">Vérifier Credly →</a>
+      </div>
+
+      <!-- Badge 8: EndPoint Security -->
       <div class="cert-item-card" data-category="cyber">
         <img src="img/secu.jpg" alt="EndPoint Security" />
         <span class="cert-category-tag">Sécurité Système</span>
-        <h3 style="color: var(--text-heading); font-size: 1.1rem;">EndPoint Security</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Protection des hôtes, pare-feu locaux et gestion de la conformité des terminaux.</p>
+        <h3 style="color: var(--text-primary); font-size: 1.1rem;">EndPoint Security</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.4;">Protection des postes clients, pare-feu système local et surveillance de la conformité des hôtes.</p>
+        <a href="https://www.netacad.com" target="_blank" class="cert-verify-btn">Vérifier NetAcad →</a>
       </div>
 
-      <!-- Badge 7 -->
-      <div class="cert-item-card" data-category="practice">
-        <img src="img/linuxprivesc.svg" alt="Pratique Autonome" />
+      <!-- Badge 9: Élévation de Privilèges Linux -->
+      <div class="cert-item-card" data-category="cyber">
+        <img src="img/linuxprivesc.svg" alt="Élévation de Privilèges Linux" />
         <span class="cert-category-tag">Pratique Autonome</span>
-        <h3 style="color: var(--text-heading); font-size: 1.1rem;">Élévation de Privilèges Linux</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Laboratoires d'entraînement sur la configuration des droits SUID et sudoers.</p>
+        <h3 style="color: var(--text-primary); font-size: 1.1rem;">Élévation de Privilèges Linux</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.4;">Audits de droits sur hôtes Linux : détournement de fichiers SUID, configurations sudoers abusives.</p>
+        <a href="https://github.com/SaidS007" target="_blank" class="cert-verify-btn">Voir Dépôt Lab →</a>
       </div>
 
-      <!-- Badge 8 -->
-      <div class="cert-item-card" data-category="practice">
-        <img src="img/hashcracker.svg" alt="Travail Régulier" />
+      <!-- Badge 10: Analyse & Cryptographie -->
+      <div class="cert-item-card" data-category="cyber">
+        <img src="img/hashcracker.svg" alt="Analyse & Cryptographie" />
         <span class="cert-category-tag">Veille & Outillage</span>
-        <h3 style="color: var(--text-heading); font-size: 1.1rem;">Analyse & Cryptographie</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">Manipulation des fonctions de hachage et mécanismes de chiffrement d'accès.</p>
+        <h3 style="color: var(--text-primary); font-size: 1.1rem;">Analyse & Cryptographie</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.4;">Veille active sur les algorithmes de hachage obsolètes et robustes, chiffrement symétrique/asymétrique.</p>
+        <a href="https://github.com/SaidS007" target="_blank" class="cert-verify-btn">Voir Dépôt Lab →</a>
+      </div>
+
+      <!-- Badge 11: Journées Nationales Cybersécurité -->
+      <div class="cert-item-card" data-category="event">
+        <img src="img/jnc_1.jpg" alt="Journées Nationales Cybersécurité" />
+        <span class="cert-category-tag">Événement National</span>
+        <h3 style="color: var(--text-primary); font-size: 1.1rem;">Journées Nationales Cybersécurité</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.4;">Attestation de participation aux conférences, ateliers pratiques et tables rondes de cybersécurité régionales.</p>
+        <span class="cert-verify-btn" style="color: var(--text-muted);">Attestation Physique</span>
+      </div>
+
+      <!-- Badge 12: Jeunesse et Leadership -->
+      <div class="cert-item-card" data-category="event">
+        <img src="img/jci.jpg" alt="Jeunesse & Leadership JCI" />
+        <span class="cert-category-tag">Engagement JCI</span>
+        <h3 style="color: var(--text-primary); font-size: 1.1rem;">Jeunesse & Leadership</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.4;">Engagement citoyen et formations sur la gestion de projet et la prise de parole au sein de la JCI.</p>
+        <span class="cert-verify-btn" style="color: var(--text-muted);">Attestation JCI</span>
+      </div>
+
+      <!-- Badge 13: Certificat de Secourisme -->
+      <div class="cert-item-card" data-category="event">
+        <img src="img/secourisme.jpg" alt="Certificat de Secourisme" />
+        <span class="cert-category-tag">Sécurité & Intervention</span>
+        <h3 style="color: var(--text-primary); font-size: 1.1rem;">Premiers Secours</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.4;">Attestation de formation aux gestes de premiers secours d'urgence, assistance aux victimes.</p>
+        <span class="cert-verify-btn" style="color: var(--text-muted);">Attestation Officielle</span>
+      </div>
+
+      <!-- Badge 14: Certificat de Natation -->
+      <div class="cert-item-card" data-category="event">
+        <img src="img/natation.jpg" alt="Certificat de Natation" />
+        <span class="cert-category-tag">Capacité Physique</span>
+        <h3 style="color: var(--text-primary); font-size: 1.1rem;">Brevet de Natation</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.4;">Certification officielle attestant de l'aptitude physique et de l'endurance en natation sportive.</p>
+        <span class="cert-verify-btn" style="color: var(--text-muted);">Brevet Validé</span>
       </div>
 
     </div>
@@ -190,7 +500,7 @@
 
   <script src="script.js"></script>
   <script>
-    // Script de filtrage dynamique spécifique à la page certifs.html
+    // Script de filtrage dynamique
     document.addEventListener('DOMContentLoaded', () => {
       const filterBtns = document.querySelectorAll('.filter-btn');
       const certCards = document.querySelectorAll('.cert-item-card');
@@ -204,7 +514,7 @@
 
           certCards.forEach(card => {
             if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-              card.style.display = 'block';
+              card.style.display = 'flex';
             } else {
               card.style.display = 'none';
             }
@@ -212,6 +522,16 @@
         });
       });
     });
+
+    // TryHackMe Carousel Navigation
+    const track = document.getElementById('thm-track');
+    const prevBtn = document.getElementById('thm-prev');
+    const nextBtn = document.getElementById('thm-next');
+    const SCROLL_AMT = 200;
+    if (prevBtn && nextBtn && track) {
+      prevBtn.addEventListener('click', () => track.scrollBy({ left: -SCROLL_AMT, behavior: 'smooth' }));
+      nextBtn.addEventListener('click', () => track.scrollBy({ left: SCROLL_AMT, behavior: 'smooth' }));
+    }
   </script>
 </body>
 </html>

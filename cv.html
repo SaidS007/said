@@ -8,7 +8,7 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <style>
     /* Styles spécifiques à la page CV */
@@ -52,55 +52,113 @@
       color: var(--accent-primary);
       font-family: var(--font-mono);
     }
+    .timeline-compact {
+      border-left: 2px solid var(--border-color);
+      padding-left: 1.5rem;
+      margin-top: 1rem;
+    }
+    .timeline-entry {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+    .timeline-entry:last-child {
+      margin-bottom: 0;
+    }
+    .timeline-entry::before {
+      content: "";
+      position: absolute;
+      left: calc(-1.5rem - 6px);
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .entry-year {
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .feature-list-custom {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .feature-list-custom li {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
   </style>
 </head>
 <body>
 
-  <div class="top-bar">
+  <!-- Top Status Strip -->
+  <header class="top-bar">
     <div class="container top-bar-inner">
-      <div>📄 Curriculum Vitae</div>
-      <div><a href="index.html">← Accueil</a></div>
-    </div>
-  </div>
-
-  <header class="hero" style="padding: 2.5rem 0 1.5rem;">
-    <div class="container hero-grid">
-      <div>
-        <span class="cv-header-badge">CURRICULUM VITAE</span>
-        <h1 class="hero-title" style="font-size: 2.8rem;">Spécifications & Parcours</h1>
-        <p class="hero-subtitle">
-          Synthèse technique complète destinée aux recruteurs, responsables réseaux et chefs de projets IT.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="Ressources/SARR_RESUME.pdf" target="_blank" rel="noopener">Ouvrir le CV PDF</a>
-          <a class="btn btn-secondary" href="realisations.html">Consulter les réalisations</a>
-        </div>
+      <div class="status-indicator">
+        <span class="dot pulse"></span>
+        <span>Ouvert aux Opportunités (Bamako & Distant)</span>
       </div>
-      <div class="hero-card">
-        <div class="profile-header">
-          <img src="img/IMG-SARR.png" alt="Said Sarr" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-primary);" />
-          <div>
-            <h3 style="color: var(--text-heading);">Said Sarr</h3>
-            <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-primary);">Support IT & Dev Junior</span>
-          </div>
-        </div>
-        <div class="profile-info-list">
-          <div class="info-item"><span class="info-label">Cible</span><span class="info-val">Stage / Postes Réseaux & IT</span></div>
-          <div class="info-item"><span class="info-label">Localisation</span><span class="info-val">Bamako, Mali</span></div>
-          <div class="info-item"><span class="info-label">Contact</span><span class="info-val">sarrsaid00@gmail.com</span></div>
-        </div>
+      <div class="top-links">
+        <a href="mailto:sarrsaid00@gmail.com">✉️ </a>
+        <a class="email-text" href="mailto:sarrsaid00@gmail.com">sarrsaid00@gmail.com</a>
+        <button id="theme-toggle" class="icon-btn" aria-label="Changer de thème"> 🌙</button>
       </div>
     </div>
   </header>
 
-  <nav class="sticky-nav">
+  <!-- Navigation -->
+  <nav class="nav-sticky">
     <div class="container nav-inner">
-      <a href="index.html" class="nav-link">Accueil</a>
-      <a href="cv.html" class="nav-link active">Dossier CV</a>
-      <a href="realisations.html" class="nav-link">Réalisations</a>
-      <a href="certifs.html" class="nav-link">Certifications</a>
+      <a href="index.html" class="brand">&lt;SaidSarr /&gt;</a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link" id="nav-home">Accueil</a></li>
+        <li><a href="cv.html" class="nav-link active" id="nav-cv">Dossier CV</a></li>
+        <li><a href="realisations.html" class="nav-link" id="nav-projects">Réalisations</a></li>
+        <li><a href="certifs.html" class="nav-link" id="nav-certs">Certifications</a></li>
+        <li><a href="index.html#contact" class="btn-sm primary nav-link" id="nav-contact">Me contacter</a></li>
+      </ul>
+      <!-- Bouton hamburger mobile -->
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-nav-drawer">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </div>
   </nav>
+
+  <header class="hero container" style="padding: 2.5rem 0 1.5rem;">
+      <div>
+        <span class="cv-header-badge">CURRICULUM VITAE</span>
+        <h1 style="font-size: 2.8rem; margin-bottom: 12px;">Spécifications & Parcours</h1>
+        <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.5;">
+          Synthèse technique complète destinée aux recruteurs, responsables réseaux et chefs de projets IT.
+        </p>
+        <div class="hero-actions" style="margin-top: 20px;">
+          <a class="btn primary" href="Ressources/SARR_RESUME.pdf" target="_blank" rel="noopener">Ouvrir le CV PDF</a>
+          <a class="btn outline" href="realisations.html">Consulter les réalisations</a>
+        </div>
+      </div>
+      <div class="hero-card" style="background-color: var(--bg-card); padding: 24px; border: 1px solid var(--border-color); border-radius: var(--radius);">
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+          <img src="img/IMG-SARR.png" alt="Said Sarr" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent);" />
+          <div>
+            <h3 style="color: var(--text-primary); margin: 0;">Said Sarr</h3>
+            <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent);">Support IT & Dev Junior</span>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem;">
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;"><span style="color: var(--text-muted);">Cible</span><strong style="color: var(--text-primary);">Stage / Postes IT & Réseaux</strong></div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;"><span style="color: var(--text-muted);">Localisation</span><strong style="color: var(--text-primary);">Bamako, Mali</strong></div>
+          <div style="display: flex; justify-content: space-between; padding-bottom: 4px;"><span style="color: var(--text-muted);">Contact</span><strong style="color: var(--text-primary);">sarrsaid00@gmail.com</strong></div>
+        </div>
+      </div>
+  </header>
 
   <main class="container" style="padding-top: 2rem;">
 
@@ -108,10 +166,10 @@
       <div>
         <section class="cv-section-block">
           <h2 style="color: var(--text-heading); font-family: var(--font-mono); margin-bottom: 1rem;">01. Profil Professionnel</h2>
-          <p style="color: var(--text-muted); margin-bottom: 1rem;">
+          <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem;">
             Technicien informatique polyvalent formé aux infrastructures réseau et télécoms à EPHEP Smart School. Capable d’intervenir sur l’ensemble du cycle d’assistance utilisateur, d’administration système (Linux/Windows) et d’intégration d’outils web sécurisés.
           </p>
-          <p style="color: var(--text-muted);">
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">
             Orienté rigueur et qualité de service, je privilégie des déploiements documentés et testés en bac à sable avant toute mise en production.
           </p>
         </section>
@@ -151,13 +209,31 @@
           <div class="timeline-compact">
             <div class="timeline-entry">
               <span class="entry-year">EPHEP Smart School — Bamako</span>
-              <strong style="display:block; color:var(--text-heading);">Informatique, Réseaux & Télécommunications</strong>
-              <p>Formations pratiques axées sur l'administration réseau, les équipements Cisco, la sécurité système et la création d'applications web.</p>
+              <strong style="display:block; color:var(--text-primary); margin-bottom: 4px;">Informatique, Réseaux & Télécommunications</strong>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">Formations pratiques axées sur l'administration réseau, les équipements Cisco, la sécurité système et la création d'applications web.</p>
             </div>
-            <div class="timeline-entry" style="margin-top: 1.5rem;">
+            <div class="timeline-entry">
               <span class="entry-year">Lycée Privé Teriya</span>
-              <strong style="display:block; color:var(--text-heading);">Baccalauréat Scientifique (Série SET)</strong>
-              <p>Mention Bien. Solides bases en mathématiques, logique et sciences exactes.</p>
+              <strong style="display:block; color:var(--text-primary); margin-bottom: 4px;">Baccalauréat Scientifique (Série SET)</strong>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">Mention Bien. Solides bases en mathématiques, logique et sciences exactes.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="cv-section-block">
+          <h2 style="color: var(--text-heading); font-family: var(--font-mono); margin-bottom: 1rem;">04. Projets Clés</h2>
+          <div class="timeline-compact">
+            <div class="timeline-entry">
+              <span class="entry-year">AutoPublish — Projet Personnel (Août 2026)</span>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">Mise en place d'un pipeline n8n intégrant un LLM de Hugging Face et des APIs de réseaux sociaux (LinkedIn, Facebook) sous Docker pour l'automatisation de la publication de contenus.</p>
+            </div>
+            <div class="timeline-entry">
+              <span class="entry-year">Emploi365 — African Wealths Development (Mai 2026)</span>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">Développement backend en Node.js/Express d'un middleware de rate-limiting et gestion DNS (SPF/DKIM/DMARC) pour optimiser la délivrabilité d'une plateforme de recrutement.</p>
+            </div>
+            <div class="timeline-entry">
+              <span class="entry-year">Serveur OpenVPN & Réseau Distant (Août 2025)</span>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">Configuration et sécurisation d'un serveur d'accès à distance (VPN) sous Debian avec autorités de certification (PKI/TLS) et filtrage réseau IPTables.</p>
             </div>
           </div>
         </section>
@@ -166,20 +242,49 @@
       <aside>
         <div class="cv-section-block">
           <h3 style="color: var(--text-heading); margin-bottom: 1rem;">Contact Direct</h3>
-          <ul class="feature-list" style="font-size: 0.9rem;">
-            <li><strong>Téléphone :</strong> +223 66 61 67 05</li>
-            <li><strong>Email :</strong> sarrsaid00@gmail.com</li>
-            <li><strong>Quartier :</strong> Yirimadio, ATTBougou</li>
-            <li><strong>Ville :</strong> Bamako, Mali</li>
+          <ul class="feature-list-custom">
+            <li>📞 <strong>Téléphone :</strong> +223 66 61 67 05</li>
+            <li>✉️ <strong>Email :</strong> sarrsaid00@gmail.com</li>
+            <li>📍 <strong>Quartier :</strong> Yirimadio, ATTBougou</li>
+            <li>🌍 <strong>Ville :</strong> Bamako, Mali</li>
           </ul>
         </div>
 
         <div class="cv-section-block">
           <h3 style="color: var(--text-heading); margin-bottom: 1rem;">Présence Numérique</h3>
-          <ul class="feature-list" style="font-size: 0.9rem;">
-            <li><a href="https://github.com/SaidS007" target="_blank">Dépôts GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/said-sarr-b972b4234/" target="_blank">Profil LinkedIn</a></li>
-            <li><a href="https://saids007.github.io/said/" target="_blank">Portfolio en ligne</a></li>
+          <ul class="feature-list-custom">
+            <li>🔗 <a href="https://github.com/SaidS007" target="_blank" style="color: var(--accent); text-decoration: underline;">Dépôts GitHub</a></li>
+            <li>🔗 <a href="https://www.linkedin.com/in/said-sarr-b972b4234/" target="_blank" style="color: var(--accent); text-decoration: underline;">Profil LinkedIn</a></li>
+            <li>🔗 <a href="https://saids007.github.io/said/" target="_blank" style="color: var(--accent); text-decoration: underline;">Portfolio en ligne</a></li>
+          </ul>
+        </div>
+
+        <div class="cv-section-block">
+          <h3 style="color: var(--text-heading); margin-bottom: 1rem;">Langues</h3>
+          <ul class="feature-list-custom">
+            <li>🇫🇷 <strong>Français :</strong> Courant / Langue de travail</li>
+            <li>🇲🇱 <strong>Bambara :</strong> Maternelle</li>
+            <li>🇬🇧 <strong>Anglais :</strong> Technique / Intermédiaire</li>
+            <li>🇸🇦 <strong>Arabe :</strong> Notions de base</li>
+          </ul>
+        </div>
+
+        <div class="cv-section-block">
+          <h3 style="color: var(--text-heading); margin-bottom: 1rem;">Qualités & Atouts</h3>
+          <ul class="feature-list-custom">
+            <li>✓ Rigueur technique et souci du détail</li>
+            <li>✓ Esprit d'équipe et collaboration</li>
+            <li>✓ Autonomie et force de proposition</li>
+            <li>✓ Curiosité et apprentissage continu</li>
+          </ul>
+        </div>
+
+        <div class="cv-section-block">
+          <h3 style="color: var(--text-heading); margin-bottom: 1rem;">Centres d'intérêt</h3>
+          <ul class="feature-list-custom">
+            <li>📚 <strong>Lecture :</strong> Romans policiers / Polars</li>
+            <li>🥋 <strong>Arts Martiaux :</strong> Karaté</li>
+            <li>💻 Veille Cybersécurité, IA & DevOps</li>
           </ul>
         </div>
       </aside>
@@ -199,9 +304,5 @@
   </footer>
 
   <script src="script.js"></script>
-  <script>
-    // Script spécifique à la page CV : suivi statistique de consultation du CV
-    console.log("Page CV chargée : Mode consultation active.");
-  </script>
 </body>
 </html>

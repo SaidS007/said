@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
   <!-- Top Status Strip -->
@@ -22,7 +24,7 @@
       </div>
       <div class="top-links">
         <a href="mailto:sarrsaid00@gmail.com">✉️ </a>
-        <a class="email-text" href="#contact">sarrsaid00@gmail.com </a>
+        <a class="email-text" href="mailto:sarrsaid00@gmail.com">sarrsaid00@gmail.com</a>
         <button id="theme-toggle" class="icon-btn" aria-label="Changer de thème"> 🌙</button>
       </div>
     </div>
@@ -31,14 +33,20 @@
   <!-- Navigation -->
   <nav class="nav-sticky">
     <div class="container nav-inner">
-      <a href="#" class="brand">&lt;SaidSarr /&gt;</a>
+      <a href="index.html" class="brand">&lt;SaidSarr /&gt;</a>
       <ul class="nav-menu">
-        <li><a href="#profil">Profil</a></li>
-        <li><a href="#competences">Compétences</a></li>
-        <li><a href="#realisations">Projets & Labs</a></li>
-        <li><a href="#formation">Parcours</a></li>
-        <li><a href="#contact" class="btn-sm primary">Me contacter</a></li>
+        <li><a href="index.html" class="nav-link active" id="nav-home">Accueil</a></li>
+        <li><a href="cv.html" class="nav-link" id="nav-cv">Dossier CV</a></li>
+        <li><a href="realisations.html" class="nav-link" id="nav-projects">Réalisations</a></li>
+        <li><a href="certifs.html" class="nav-link" id="nav-certs">Certifications</a></li>
+        <li><a href="index.html#contact" class="btn-sm primary nav-link" id="nav-contact">Me contacter</a></li>
       </ul>
+      <!-- Bouton hamburger mobile -->
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-nav-drawer">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </div>
   </nav>
 
@@ -51,7 +59,7 @@
         Je conçois et sécurise des environnements numériques fiables. De la configuration de topologies réseaux à l'automatisation de workflows complexes et au développement web, je privilegie la rigueur, l'architecture propre et le sens du service.
       </p>
       <div class="hero-actions">
-        <a href="#realisations" class="btn primary">Explorer mes réalisations</a>
+        <a href="realisations.html" class="btn primary">Explorer mes réalisations</a>
         <a href="Ressources/SARR_RESUME.pdf" class="btn outline" target="_blank" rel="noopener">Télécharger le CV (PDF)</a>
       </div>
     </div>
@@ -68,7 +76,7 @@
         <p><span class="prompt">$</span> location</p>
         <p class="response">Bamako, Mali 🇲🇱</p>
         <p><span class="prompt">$</span> stack --primary</p>
-        <p class="response">[Linux, Cisco CCNA, OpenVPN, Python, Node.js, PHP, MySQL, Docker, n8n]</p>
+        <p class="response">[Linux, Cisco CCNA, OpenVPN, Python, Node.js, Django, MySQL, Docker, n8n]</p>
         <p><span class="prompt">$</span> status</p>
         <p class="response text-green">Ready to deploy & optimize.</p>
       </div>
@@ -139,76 +147,226 @@
       </div>
 
       <div class="projects-grid">
-        
-        <!-- Projet 1 -->
+
+        <!-- Projet 1: AutoPublish -->
         <article class="project-card">
-          <div class="project-header">
-            <span class="project-tag">Sécurité & Réseau</span>
-            <span class="project-date">2025</span>
-          </div>
-          <h3>Infrastructures Réseaux Chiffrées & VPN Local</h3>
-          <p>
-            Déploiement et configuration d'un serveur <strong>OpenVPN</strong> en environnement virtuel Linux pour simuler un accès distant sécurisé (Zero-Trust basis). Mise en place d'un serveur de fichiers <strong>Samba</strong> avec permissions granulaires et isolation des flux.
-          </p>
-          <div class="tech-stack">
-            <span>Linux</span>
-            <span>OpenVPN</span>
-            <span>Samba</span>
-            <span>Wireshark</span>
-            <span>UFW</span>
+          <img src="img/autopublish.png" alt="AutoPublish" class="project-card-img" />
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-tag">Automation & AI</span>
+              <span class="project-date">Août 2026</span>
+            </div>
+            <h3>AutoPublish</h3>
+            <p>
+              Pipeline d'automatisation Low-Code traitant des flux RSS et générant du contenu optimisé via LLM pour une publication multi-plateforme.
+            </p>
+            <div class="tech-stack">
+              <span>n8n</span>
+              <span>Hugging Face</span>
+              <span>Node.js</span>
+              <span>Docker</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/SaidS007/n8n-autopublish" target="_blank" class="btn btn-sm outline">GitHub</a>
+              <a href="realisations.html#autopublish" class="btn btn-sm primary">Détails</a>
+            </div>
           </div>
         </article>
 
-        <!-- Projet 2 -->
+        <!-- Projet 2: Emploi365 -->
         <article class="project-card">
-          <div class="project-header">
-            <span class="project-tag">Web & Backend</span>
-            <span class="project-date">2025 - 2026</span>
-          </div>
-          <h3>Plateformes Web & Middlewares Personnalisés</h3>
-          <p>
-            Conception d'applications web structurées (LAMP / Node.js) avec gestion stricte des rôles (Admin, Professeurs, Étudiants). Implémentation de <em>Middlewares de Rate-Limiting</em> et gestion avancée de jetons d'accès via Graph API.
-          </p>
-          <div class="tech-stack">
-            <span>PHP / MySQL</span>
-            <span>Node.js</span>
-            <span>Rate Limiting</span>
-            <span>REST API</span>
+          <img src="img/emploi365.png" alt="Emploi365" class="project-card-img" />
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-tag">Web & Recruit</span>
+              <span class="project-date">Mai 2026</span>
+            </div>
+            <h3>Emploi365</h3>
+            <p>
+              Plateforme de recherche d'emploi et de recrutement avec pipeline de distribution automatique et gestion de la délivrabilité d'emails.
+            </p>
+            <div class="tech-stack">
+              <span>Django</span>
+              <span>Rate-Limit</span>
+              <span>DNS Auth</span>
+              <span>n8n</span>
+            </div>
+            <div class="project-actions">
+              <a href="realisations.html#emploi365" class="btn btn-sm outline">Détails</a>
+              <a href="https://emploi365.ml" target="_blank" class="btn btn-sm primary">Voir le Site</a>
+            </div>
           </div>
         </article>
 
-        <!-- Projet 3 -->
+        <!-- Projet 3: Recy'Plast -->
         <article class="project-card">
-          <div class="project-header">
-            <span class="project-tag">Automation & Scripting</span>
-            <span class="project-date">2026</span>
-          </div>
-          <h3>Pipelines d'Automatisation & Batch Processing</h3>
-          <p>
-            Conception de workflows d'automatisation sur instance local <strong>n8n</strong>. Traitement de données par lots, génération et planification de contenus connectés à des APIs tierces via des requêtes HTTP sécurisées.
-          </p>
-          <div class="tech-stack">
-            <span>n8n</span>
-            <span>Python</span>
-            <span>JSON/APIs</span>
-            <span>Webhooks</span>
+          <img src="img/recyplast.png" alt="Recy'Plast" class="project-card-img" />
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-tag">Web & Green</span>
+              <span class="project-date">Mars 2025</span>
+            </div>
+            <h3>Recy'Plast (Soutenance)</h3>
+            <p>
+              Plateforme web de suivi et de sensibilisation pour le traitement et le recyclage des déchets plastiques à Bamako.
+            </p>
+            <div class="tech-stack">
+              <span>PHP Native</span>
+              <span>MySQL</span>
+              <span>JavaScript</span>
+              <span>Bootstrap</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/SaidS007/recyplast-web" class="btn btn-sm outline">GitHub</a>
+              <a href="realisations.html#recyplast" class="btn btn-sm primary">Détails</a>
+            </div>
           </div>
         </article>
 
-        <!-- Projet 4 -->
+        <!-- Projet 4: Drupal / Opigno LMS -->
         <article class="project-card">
-          <div class="project-header">
-            <span class="project-tag">Algorithmique & Simulation</span>
-            <span class="project-date">2026</span>
+          <img src="img/drupal_opigno_lms.png" alt="Drupal / Opigno LMS" class="project-card-img" />
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-tag">CMS & LMS</span>
+              <span class="project-date">Novembre 2025</span>
+            </div>
+            <h3>Socle Drupal / Opigno LMS</h3>
+            <p>
+              Déploiement et gestion des dépendances d'une plateforme d'apprentissage en ligne pour un environnement académique.
+            </p>
+            <div class="tech-stack">
+              <span>Drupal 10</span>
+              <span>Opigno LMS</span>
+              <span>Composer</span>
+              <span>CKEditor</span>
+            </div>
+            <div class="project-actions">
+              <a href="realisations.html#drupal-opigno" class="btn btn-sm primary">Documentation</a>
+            </div>
           </div>
-          <h3>Modélisation Topologique & Théorie des Graphes</h3>
-          <p>
-            Développement de scripts de simulation visualisant les topologies réseaux filaires et le calcul des plus courts chemins (Dijkstra/A*). Optimisation pour reproduire fidèlement l'aspect des simulateurs type Packet Tracer.
-          </p>
-          <div class="tech-stack">
-            <span>Python</span>
-            <span>Graph Theory</span>
-            <span>Network Topology</span>
+        </article>
+
+        <!-- Projet 5: MEM Courier & Open Capture -->
+        <article class="project-card">
+          <img src="img/mem_courrier.png" alt="MEM Courier & Open Capture" class="project-card-img" />
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-tag">GED & DevOps</span>
+              <span class="project-date">Septembre 2025</span>
+            </div>
+            <h3>MEM Courier & Open Capture</h3>
+            <p>
+              Orchestration et résolution de dépendances pour la gestion de courriers et la numérisation GED automatisée.
+            </p>
+            <div class="tech-stack">
+              <span>Angular</span>
+              <span>Express.js</span>
+              <span>Docker</span>
+              <span>Bash</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/SaidS007/awd-mem-courier" target="_blank" class="btn btn-sm outline">GitHub</a>
+              <a href="realisations.html#mem-courier" class="btn btn-sm primary">Détails</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Projet 6: Site Vitrine GGC -->
+        <article class="project-card">
+          <img src="img/ggc.png" alt="Site Vitrine GGC" class="project-card-img" />
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-tag">WordPress & SEO</span>
+              <span class="project-date">Juillet 2025</span>
+            </div>
+            <h3>Site Vitrine Entreprise GGC</h3>
+            <p>
+              Conception, sécurisation MySQL et déploiement du site vitrine institutionnel pour le groupe GGC avec référencement optimisé.
+            </p>
+            <div class="tech-stack">
+              <span>WordPress</span>
+              <span>PHP</span>
+              <span>SEO</span>
+              <span>MySQL</span>
+            </div>
+            <div class="project-actions">
+              <a href="realisations.html#site-ggc" class="btn btn-sm primary">Aperçu du Site</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Projet 7: SOC & Supervision -->
+        <article class="project-card">
+          <img src="img/soc_supervision.png" alt="SOC & Supervision" class="project-card-img" />
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-tag">Sécurité & SIEM</span>
+              <span class="project-date">Juin 2025</span>
+            </div>
+            <h3>SOC & Supervision</h3>
+            <p>
+              Infrastructure de détection d'intrusions (Zeek IDS), monitoring système (Wazuh SIEM) et analyse des journaux réseau via Grafana.
+            </p>
+            <div class="tech-stack">
+              <span>Wazuh SIEM</span>
+              <span>Grafana</span>
+              <span>Zeek IDS</span>
+              <span>Dokploy</span>
+              <span>Docker</span>
+            </div>
+            <div class="project-actions">
+              <a href="realisations.html#soc-supervision" class="btn btn-sm primary">Schéma d'Architecture</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Projet 8: Quiz Citoyenne_Futee -->
+        <article class="project-card">
+          <img src="img/quiz_citoyenne.png" alt="Quiz Citoyenne Futee" class="project-card-img" />
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-tag">Web App & API</span>
+              <span class="project-date">Mars 2026</span>
+            </div>
+            <h3>Quiz Citoyenne_Futee</h3>
+            <p>
+              Application web interactive de sensibilisation citoyenne sous forme de quiz dynamique avec API REST dédiée.
+            </p>
+            <div class="tech-stack">
+              <span>Angular</span>
+              <span>Django REST</span>
+              <span>PostgreSQL</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/SaidS007" target="_blank" class="btn btn-sm outline">GitHub</a>
+              <a href="realisations.html#quiz-citoyenne" class="btn btn-sm primary">Détails</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Projet 9: Projets d'Infrastructures Antérieurs -->
+        <article class="project-card">
+          <img src="img/os.png" alt="Samba & LAMP" class="project-card-img" />
+          <div class="project-content">
+            <div class="project-header">
+              <span class="project-tag">Infrastructures IT</span>
+              <span class="project-date">2024 - 2025</span>
+            </div>
+            <h3>Infrastructures & Serveurs</h3>
+            <p>
+              Mise en œuvre de serveurs de fichiers sécurisés Samba avec permissions granulaires, et serveurs Web LAMP locaux pour la gestion scolaire.
+            </p>
+            <div class="tech-stack">
+              <span>Ubuntu</span>
+              <span>Samba</span>
+              <span>Apache</span>
+              <span>MySQL</span>
+              <span>PHP</span>
+            </div>
+            <div class="project-actions">
+              <a href="realisations.html#infra-anterieurs" class="btn btn-sm primary">Fiche Technique</a>
+            </div>
           </div>
         </article>
 
@@ -242,25 +400,43 @@
 
         <!-- Certifications -->
         <div class="box">
-          <h3 class="box-title">📜 Badges & Certifications Cisco / Cyber</h3>
-          <ul class="cert-list">
-            <li>
-              <strong>Ethical Hacker</strong>
-              <span>Pratique des bases du pentest & de la défense.</span>
-            </li>
-            <li>
-              <strong>Networking Devices & Basics (Cisco NetAcad)</strong>
-              <span>Commutation, routage et équipement réseau.</span>
-            </li>
-            <li>
-              <strong>Introduction to Cybersecurity</strong>
-              <span>Principes fondamentaux de la protection des données.</span>
-            </li>
-            <li>
-              <strong>Participant aux Journées Nationales de Cybersécurité</strong>
-              <span>Veille technique & conférences spécialisées.</span>
-            </li>
-          </ul>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 8px;">
+            <h3 class="box-title" style="margin: 0;">📜 Certifications Clés</h3>
+            <a href="certifs.html" style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--accent);">Voir la galerie →</a>
+          </div>
+          <div class="certifications-grid" style="grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 0;">
+            <!-- Ethical Hacker -->
+            <div class="cert-card-mini">
+              <img src="img/Ethical_Hacker_Badge.png" alt="Ethical Hacker" />
+              <h4>Ethical Hacker</h4>
+              <span>Cisco NetAcad</span>
+              <a href="certifs.html" class="btn-verify">Détails</a>
+            </div>
+
+            <!-- Support et sécurité des réseaux -->
+            <div class="cert-card-mini">
+              <img src="img/Support_Security_Networks_Badge.png" alt="Support & Sécurité" />
+              <h4>Support & Sécurité</h4>
+              <span>Cisco NetAcad</span>
+              <a href="certifs.html" class="btn-verify">Détails</a>
+            </div>
+
+            <!-- Networking Devices -->
+            <div class="cert-card-mini">
+              <img src="img/Networking_Devices_Badge.png" alt="Networking Devices" />
+              <h4>Networking Devices</h4>
+              <span>Cisco NetAcad</span>
+              <a href="certifs.html" class="btn-verify">Détails</a>
+            </div>
+
+            <!-- Introduction to Cybersecurity -->
+            <div class="cert-card-mini">
+              <img src="img/Introduction_to_Cybersecurity_Badge.png" alt="Cybersecurity" />
+              <h4>Cybersecurity</h4>
+              <span>Cisco NetAcad</span>
+              <a href="certifs.html" class="btn-verify">Détails</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -270,7 +446,7 @@
       <div class="contact-box">
         <h2>Travaillons Ensemble</h2>
         <p>Vous recherchez un profil rigoureux en support IT, administration réseau ou développement web ? N'hésitez pas à me contacter.</p>
-        
+
         <div class="contact-details">
           <div class="c-item">📍 Bamako, Mali (Yirimadio)</div>
           <div class="c-item">📞 +223 66 61 67 05</div>
@@ -296,4 +472,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
